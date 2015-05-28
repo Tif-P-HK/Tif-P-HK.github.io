@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://bootswatch.com/darkly/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="inspectDom()">
+
+  <a id="anchor1" href="#">first anchor</a>
+<p>
+  <a href="#">second anchor</a>
+
+<div class="jumbotron" id="jumbotron">
+  <div class="container" id="checkBoxesDiv" htmlAttr="html attr val"></div>
+</div>
+
+  <div id="innerHTMLDiv"></div>
+
+  <form id="bootstrapFormExampleId">
+    <span id="basic-addon0">span at the top of the form</span>
+
+    <div class="input-group">
+      <label><input type="checkbox" name="capacity"> another checkbox with the name "capacity"</label>
+      <span class="input-group-addon" id="basic-addon1">@</span>
+      <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+    </div>
+
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
+      <span class="input-group-addon" id="basic-addon2">@example.com</span>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon3">$</span>
+      <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+      <span class="input-group-addon" id="basic-addon4">.00</span>
+    </div>
+    <span class="input-group-addon" id="basic-addon5"></span>
+  </form>
+
+<script src="checkBoxGenerator.js"></script>
+<script src="DOM.js"></script>
+</body>
+</html>
