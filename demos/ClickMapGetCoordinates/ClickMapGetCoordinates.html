@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Site custom styles -->
+    <link rel="stylesheet" type="text/css" href="..\..\css\site.css">
+</head>
+
+<body>
+
+<div class="container">
+    <div class="jumbotron">
+        <!--Title and description-->
+        <h4>Click on Map to Get Coordinates</h4>
+        <small>Map centers at Kwun Tong, Hong Kong by default. The map marker will update its location when clicking on map. An info window and a coordinate text are used to display the coordinates of the marker.</small>
+
+        <!--The map-->
+        <!--The div containing the map needs to have a height. Otherwise the map will not be displayed-->
+        <div class="map-display" id="map-canvas"></div>
+
+        <!--Coordinate text and the reset button-->
+        <div class="verticalSpace-sm">
+            <label id="latLngText">Lat, long: </label>
+            <label id="coordinateText"></label>
+            <button id="homebtn" type="button" class="btn btn-primary btn-sm" style="float:right;">Reset Map Extent</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- jQuery -->
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap js lib -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<!-- Google maps api-->
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+
+<!-- Site JS-->
+<script src=".\ClickMapGetCoordinates.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html id="clickOnMapToGetCoordinates" >
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Site custom styles -->
+    <link rel="stylesheet" type="text/css" href="..\..\css\site.css">
+</head>
+
+
+<body onload="initialize()">
+
+<div class="container">
+    <div class="jumbotron">
+        <!--Title and description-->
+        <h4>Places Library - Text Search. Get Details</h4>
+        <small>Do a text search and get details of a search result. Show photo of the place if available</small>
+
+        <!--Search box-->
+        <div class="form-group" id="searchControlDiv">
+            <input type="text" class="form-control" placeholder="I'm looking for..." id="searchTxt">
+        </div>
+
+        <!--The map-->
+        <!--The div containing the map needs to have a height. Otherwise the map will not be displayed-->
+        <div class="map-display" id="map-canvas"></div>
+
+    </div>
+</div>
+
+
+
+<!-- jQuery -->
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap js lib -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<!-- Google maps api-->
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&v=3.exp"></script>
+
+<!-- Site JS-->
+<script src=".\PlacesLibTextSearch.js"></script>
+</body>
+</html>

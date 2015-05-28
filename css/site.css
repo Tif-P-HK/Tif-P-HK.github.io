@@ -1,0 +1,29 @@
+body { background-image: url("../img/footer_lodyas.png"); }
+
+.verticalSpace-sm { padding-top: 5px; }
+
+.map-display { min-height: 370px; }
+
+iframe {
+    width: inherit;
+    min-height: 630px;
+    margin: 0 auto;
+    border: 0;
+}
+
+/*used by SavePlaces*/
+#descriptionWindowDiv {
+    max-width: 300px;
+    max-height: 100px;
+    box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px;
+    background-color: white;
+    padding: 10px;
+    font-family: Roboto, Arial;
+    font-size: 13px;
+    margin: 15px;
+}
+
+/*used by PlacesLibTextSearch*/
+#searchControlDiv{
+    width: 50%;
+}

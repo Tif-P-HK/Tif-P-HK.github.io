@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Map Stuff</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!--custom theme-->
+    <link rel="stylesheet" type="text/css" href="css\site.css">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="js\libs\bootstrap.min.js"></script>
+
+    <!--Lazy loading of iFrames? https://github.com/emn178/jquery-lazyload-any-->
+
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="#">Google Maps Lab</a></li>
+                    <li role="presentation"><a href="#">About</a></li>
+                </ul>
+            </nav>
+            <h3 class="text-primary">Map Stuff</h3>
+        </div>
+    </div>
+
+    <div class="verticalSpace-sm"></div>
+
+    <!--
+    put all iframees into one div and have a fixed width + height. Consider changing back to have a .embed-responsive div
+    for each iframe, and have scrollbar = false for each
+    -->
+    <div class="container">
+        <iframe src="demos/ClickMapGetCoordinates/ClickMapGetCoordinates.html"></iframe>
+
+        <iframe src="demos/SavePlaces/SavePlaces.html"></iframe>
+
+        <iframe src="demos/PlacesLibTextSearch/PlacesLibTextSearch.html"></iframe>
+
+        <!--
+        css improvements:
+        - site.css
+        - rename css folder to Content
+        - rel to the whole Content folder
+
+        js improvement:
+        - use import (check dojo lab 6d)
+
+
+        <!--
+        Text search
+- autocomplete
+- get details
+- photo
+
+Text search
+- autocomplete address
+
+Radar search
+- unique symbols
+- pagination
+
+        -->
+    </div>
+</body>
+</html>
