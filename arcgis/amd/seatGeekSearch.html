@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9" />
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+  <title>Seat geek search</title>
+  <link rel="stylesheet" href="http://js.arcgis.com/3.6/js/esri/css/esri.css">
+  <style>
+    html, body, #map {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    #feedback {
+      background: #fff;
+      bottom: 30px;
+      color: #444;
+      position: absolute;
+      font-family: arial;
+      height: auto;
+      left: 30px;
+      margin: 5px;
+      padding: 10px;
+      width: 300px;
+      z-index: 40;
+    }
+    .shadow {
+      -moz-box-shadow: 0 0 5px #888;
+      -webkit-box-shadow: 0 0 5px #888;
+      box-shadow: 0 0 5px #888;
+    }
+  </style>
+  <script>
+    var dojoConfig = {
+      paths: { extras: location.pathname.replace(/\/[^/]+$/, "") + "/extras" }
+    };
+  </script>
+  <script src="http://js.arcgis.com/3.6/"></script>
+  <script>
+    // dojo parser, esri modules, a custom module
+    // and dijit layout widgets
+    require([
+        "dojo/_base/array",
+        "extras/SeatGeekSearch",
+        "esri/map",
+        "esri/geometry/webMercatorUtils",
+        "dojo/domReady!"
+      ], function(
+        arrayUtils, SeatGeekSearch, Map, webMercatorUtils
+      ) {
+        window.map = new Map("map", {
+          basemap: "national-geographic",
+          center: [-99.657, 40.673],
+          zoom: 4,
+          slider: false
+        });
+
+        // instantiate the Seat Geek Search class
+        var sg = new SeatGeekSearch({
+          distance: "20mi",
+          perPage: 10
+        });
+        // search Seat Geek for events when the map is clicked
+        map.on("click", function(e) {
+          // Seat Geek expects latitude, longitude
+          var geographic = webMercatorUtils.webMercatorToGeographic(e.mapPoint);
+          // searchByLoc returns a deferred
+          // once the deferred is resolved,
+          // pass the results to a callback function
+          var sgResults = sg.searchByLoc(geographic);
+          sgResults.then(searchSucceeded, searchFailed);
+        });
+
+        function searchSucceeded(results) {
+          // log results from Seat Geek to the console
+          if ( results ) {
+            arrayUtils.forEach(results.events, function(e) {
+              console.log("Event: ", e.short_title, "; Average Price: ", e.stats.average_price);
+            });
+          } else {
+            console.log("Search completed successfully but there were not any events found near that location.");
+          }
+        }
+
+        function searchFailed(err) {
+          console.log("Seat Geek error: ", error);
+        }
+      }
+    );
+  </script>
+</head>
+
+<body>
+<div id="map">
+  <div id="feedback" class="shadow">
+    Click the map to search Seat Geek for events within 20 miles of the click point. Results are logged to the browser's console.
+  </div>
+</div>
+</body>
+</html>
+

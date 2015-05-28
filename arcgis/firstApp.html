@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="http://js.arcgis.com/3.13/esri/css/esri.css">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.13/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <script src="http://js.arcgis.com/3.13/"></script>
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <title></title>
+
+    <style>
+        html, body, #mapDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%
+        }
+    </style>
+</head>
+
+<!--<body style="background-image: url('img/footer_lodyas.png')">-->
+<body>
+
+    <div id="mapDiv" ></div>
+
+<!--
+https://www.sitepen.com/blog/2013/04/17/dojodomready-vs-dojoready/
+    dojo/domReady: DOM is ready
+    dojo/ready: DOM is ready + all outstanding modules are loaded + other higher priority functions are done
+
+    As you can see, the primary difference between dojo/domReady and dojo/ready is that
+    dojo/ready allows you to specify a priority and context, and dojo/ready cannot be used
+    as a plugin, like dojo/domReady. Additionally, dojo/ready waits for all requested code
+    to finish loading, as opposed to simply just waiting on the DOM to be ready.
+    Given these differences, we can easily determine the appropriate time for each module.
+
+    If you need to ensure that your callbacks execute in a set order, or they need to wait
+    for things like all modules of code to finish loading, dojo/ready is the right choice.
+    If you’re depending on parseOnLoad in your application, you need to use dojo/ready.
+
+    If you don’t need to wait for all code other than your dependencies to complete loading,
+    or you don’t need to worry about the parsed results, dojo/domReady is the recommended
+    solution, as it requires no changes to your code other than adding the dojo/domReady!
+    dependency to your require call.
+-->
+
+    <script type="text/javascript">
+
+        var map;
+        var mapOptions;
+        require(["esri/map", "dojo/domReady!"], function(Map){
+            mapOptions = {
+                center: [114.22324419021606, 22.314711204904285],
+                zoom: 18,
+                basemap: "streets"
+            };
+            map = new Map("mapDiv", mapOptions);
+
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="http://js.arcgis.com/3.13/esri/css/esri.css">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.13/dijit/themes/claro/claro.css">
+
+    <script src="http://js.arcgis.com/3.13/"></script>
+
+    <title>Directions</title>
+
+    <style>
+        html, body, #mapDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%
+        }
+    </style>
+</head>
+
+<body>
+
+<div data-dojo-type="dijit/layout/BorderContainer"
+     data-dojo-props="design:'headline', gutters:false"
+     style="width:100%;height:100%;">
+    <div id="dir"
+         data-dojo-type="dijit/layout/ContentPane"
+         data-dojo-props="region:'right'"
+         style="width:250px;">
+    </div>
+    <div id="mapDiv"
+         data-dojo-type="dijit/layout/ContentPane"
+         data-dojo-props="region:'center'">
+    </div>
+</div>
+
+<script type="text/javascript">
+    require([
+        "esri/map", "esri/dijit/Directions", "dojo/parser",
+        "dijit/layout/BorderContainer", "dijit/layout/ContentPane",
+        "dojo/domReady!"], function(Map, Directions, parser){
+
+        parser.parse();
+
+        var mapOptions = {
+            center: [114.22324419021606, 22.314711204904285],
+            basemap: "streets",
+            zoom: 18
+        };
+        var map = new Map("mapDiv", mapOptions);
+
+        var directions = new Directions({
+            map: map
+        }, "dir");
+        directions.startup();
+    });
+</script>
+</body>
+</html>

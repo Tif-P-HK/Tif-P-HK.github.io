@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="http://js.arcgis.com/3.13/esri/css/esri.css">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.13/dijit/themes/claro/claro.css">
+
+    <script src="http://js.arcgis.com/3.13/"></script>
+
+    <title>Geocoder</title>
+
+    <style>
+        html, body, #mapDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%
+        }
+       #dirGeocoder {
+           display: block;
+           position: absolute;
+           z-index: 3;
+           top: 20px;
+           left: 75px;
+       }
+    </style>
+</head>
+
+<body>
+
+<div id="mapDiv"></div>
+
+<!--Other divs need to be under the Container div above-->
+<div id="dirGeocoder"></div>
+
+<script type="text/javascript">
+    require([
+        "esri/map",
+        "esri/dijit/Geocoder",
+        "esri/graphic",
+        "esri/symbols/SimpleMarkerSymbol",
+        "esri/geometry/screenUtils",
+        "dojo/dom",
+        "dojo/dom-construct",
+        "dojo/query",
+        "dojo/_base/Color",
+        "esri/dijit/Directions",
+        "dojo/domReady!"], function(
+            Map, Geocoder, Graphic, SimpleMarkerSymbol,screenUtils, dom, domConstruct, query, Color){
+
+
+        //Basic map properties
+        var mapOptions = {
+            center: [114.22324419021606, 22.314711204904285],
+            basemap: "streets",
+            zoom: 18
+        };
+        var map = new Map("mapDiv", mapOptions);
+
+        //Geocoder widget
+        var geocoder = new Geocoder({
+            map: map,
+            arcgisGeocoder:{
+                placeholder: "Search for place in HK"
+            },
+            autoComplete: true
+        }, dom.byId("dirGeocoder"));
+        geocoder.startup();
+
+        //Select result from geocoder
+        geocoder.on("select", function(evt){
+            map.graphics.clear();
+
+            //Draw selected result by given symbol
+            var point = evt.result.feature.geometry;
+            var symbol = new SimpleMarkerSymbol()
+                    .setStyle("square")
+                    .setColor(new Color([255, 0, 0, 0.5]));
+            var graphic = new Graphic(point, symbol);
+            map.graphics.add(graphic);
+
+            showInfoWindow(map, evt.result.name, point);
+        });
+
+        //Show info window
+        var showInfoWindow = function(map, contentText, point)
+        {
+            map.infoWindow.setTitle("Search Result");
+            map.infoWindow.setContent(contentText);
+            map.infoWindow.show(point);
+        };
+    });
+</script>
+</body>
+</html>

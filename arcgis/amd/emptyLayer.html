@@ -1,0 +1,73 @@
+<!--http://servicesbeta.esri.com/demos/using-classes-with-javascript/AMD/empty_basemap.html-->
+<!--https://developers.arcgis.com/javascript/jshelp/inside_defaults.html-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>Empty layer</title>
+    <link rel="stylesheet" href="http://js.arcgis.com/3.6/js/esri/css/esri.css">
+    <style>
+      html, body { height: 100%; width: 100%; margin: 0; padding: 0; }
+      #map{ margin: 0; padding: 0; }
+    </style>
+  </head>
+  <body class="tundra">
+    <div data-dojo-type="dijit.layout.BorderContainer"
+         data-dojo-props="design:'headline',gutters:false"
+         style="width: 100%; height: 100%; margin: 0;">
+      <div id="map"
+           data-dojo-type="dijit.layout.ContentPane"
+           data-dojo-props="region:'center'">
+      </div>
+    </div>
+
+
+  <script>
+    var dojoConfig = {
+      locale: "en",
+      package: [{
+        name: "extras",
+        location: location.pathname.replace(/\/[^/]+$/, "") + "/extras"
+      }]
+    };
+  </script>
+  <script src="http://js.arcgis.com/3.6/"></script>
+  <script>
+    require([
+      "dojo/_base/connect",
+      "dojo/parser",
+      "extras/EmptyLayer",
+      "esri/map",
+      "esri/layers/FeatureLayer",
+      "dijit/layout/BorderContainer",
+      "dijit/layout/ContentPane",
+      "dojo/domReady!"
+    ], function(connect, parser, EmptyLayer){
+      parser.parse();
+
+
+    });
+  </script>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
