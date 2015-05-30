@@ -26,22 +26,22 @@ function runPeoplesLife(){
   var gk = new Person("White Hawk", "universe 1");
   var lk = new Person("Victoria Qoo", "universe 2");
 
-  alert("There are now "+Person.population+" people");
+  console.log("There are now "+Person.population+" people");
 
   gk.showLegs(); lk.showLegs();                 //Both share the common 'Person.prototype.legs' variable when looking at 'this.legs'
 
   gk.race = "hispanic";                         //Sets a public variable, but does not overwrite private 'race' variable.
-  alert(gk+"'s real race is "+gk.getRace());    //Returns 'caucasian' from private 'race' variable set at create time.
+  console.log(gk+"'s real race is "+gk.getRace());    //Returns 'caucasian' from private 'race' variable set at create time.
   gk.eat(); gk.eat(); gk.eat();                 //weigh is 3...then 9...then 27
-  alert(gk+" weighs "+gk.weigh()+" pounds and has a dirt factor of "+gk.dirtFactor);
+  console.log(gk+" weighs "+gk.weigh()+" pounds and has a dirt factor of "+gk.dirtFactor);
 
   gk.exercise();                                //weigh is now 13.5
   gk.beCool();                                  //clothing has been update to current fashionable levels
   gk.clothing="Pimp Outfit";                    //clothing is a public variable that can be updated to any funky value
   gk.shower();
-  alert("Existing shower technology has gotten "+gk+" to a dirt factor of "+gk.dirtFactor);
+  console.log("Existing shower technology has gotten "+gk+" to a dirt factor of "+gk.dirtFactor);
 
-  gk.muchTimePasses();                          //50 Years Pass
+  gk.muchTimePass();                          //50 Years Pass
   Person.prototype.shower=function(){           //Shower technology improves for everyone
     this.dirtFactor=0;
   }
@@ -50,7 +50,7 @@ function runPeoplesLife(){
   };
 
   gk.beCool(); gk.shower();
-  alert("Fashionable "+gk+" at "
+  console.log("Fashionable "+gk+" at "
     +gk.getAge()+" years old is now wearing "
     +gk.clothing+" with dirt factor "
     +gk.dirtFactor);
@@ -58,10 +58,12 @@ function runPeoplesLife(){
   gk.amputate();                                //Uses the prototype property and makes a public property
   gk.showLegs(); lk.showLegs();                 //Lisa still has the prototype property
 
-  gk.muchTimePasses();                          //50 Years Pass...Gavin is now over 100 years old.
+  gk.muchTimePass();                          //50 Years Pass...Gavin is now over 100 years old.
   gk.eat();
 
-
+  console.log("*****************************");
+  console.log("The ballad of two dump people -- Finished");
+  console.log("*****************************");
 }
 
 function inheritanceWithSimpleObjects(){
