@@ -28,16 +28,166 @@
 
     /* News */
     #newsDiv{
-      width: 20%;
-      height: 50%;
-      background: #3f4347;
+      width: 25%;
     }
+
+    #newsDiv h2{
+      margin-bottom: 15px;;
+    }
+
+    .scrollable{
+      height: 400px;
+      width: 100%;
+      border: solid #3f4347;
+      border-width: 40px 10px 35px 10px;
+      background-image: url("img/grey_wash_wall.png");
+
+      overflow: hidden;
+      position: relative;
+    }
+
+    .items{
+      /*Reference:
+      http://jsfiddle.net/spliter/g2PE7/
+      */
+
+      -webkit-animation: scroll 12s infinite;
+      -moz-animation: scroll 12s infinite;
+      -ms-animation: scroll 12s infinite;
+    }
+
+    .items:hover{
+      -webkit-animation-play-state: paused;
+      animation-play-state: paused;
+    }
+
+    .items:not(:hover){
+      -webkit-animation-play-state: running;
+      animation-play-state: running;
+    }
+
+    .items > div{
+      /* keep the total height = 100px */
+      height: 94px;
+      padding: 3px;
+
+      margin: 0 10px;
+      overflow: hidden;
+      border-bottom: 1px dashed #FFFFFF;
+    }
+
+    .items > div:hover{
+      border-left: 10px solid transparent;
+    }
+
+    .imgDiv + p:hover{
+      cursor: pointer;
+    }
+
+    .imgDiv{
+      height: 90px;
+      width: 90px;
+      margin: 10px 5px auto auto;
+      display: block;
+      float: left;
+    }
+
+    .imgDiv img{
+      height: 80%;
+      width: 100%;
+    }
+
+    .items div p{
+      margin: 5px;
+      font-size: 0.9em;
+    }
+
+
+    @-webkit-keyframes scroll {
+      0% {
+        margin-top: 0;
+      }
+      27.33% {
+        margin-top: 0
+      }
+      33.33% {
+        margin-top: -100px;
+      }
+      60.66% {
+        margin-top: -100px;
+      }
+      66.66% {
+        margin-top: -200px;
+      }
+      94.99% {
+        margin-top: -200px;
+      }
+      10% {
+        margin-top: 0
+      }
+    }
+
+    @-moz-keyframes scroll {
+      0% {
+        margin-top: 0;
+      }
+      27.33% {
+        margin-top: 0
+      }
+      33.33% {
+        margin-top: -50px;
+      }
+      60.66% {
+        margin-top: -50px;
+      }
+      66.66% {
+        margin-top: -100px;
+      }
+      94.99% {
+        margin-top: -100px;
+      }
+      10% {
+        margin-top: 0
+      }
+    }
+
+    @-ms-keyframes scroll {
+      0% {
+        margin-top: 0;
+      }
+      27.33% {
+        margin-top: 0
+      }
+      33.33% {
+        margin-top: -50px;
+      }
+      60.66% {
+        margin-top: -50px;
+      }
+      66.66% {
+        margin-top: -100px;
+      }
+      94.99% {
+        margin-top: -100px;
+      }
+      100% {
+        margin-top: 0
+      }
+    }
+
+
+
+
+
+
+
+
 
     /* Events */
     /******** Styles for the navigation menu ********/
     #eventsDiv{
       margin: 20px 10px 0 16%;
-      width: 890px;
+      width: 800px;
       height: 430px;
     }
 
@@ -81,7 +231,8 @@
       background-image: url("img/grey_wash_wall.png");
       background-repeat: repeat;
 
-      border: 25px solid #3f4347;
+      border: solid #3f4347;
+      border-width: 20px 10px;
     }
 
     .eventsOnMonth{
@@ -89,9 +240,9 @@
     }
 
     .eventsOnMonth img{
-      width: 75%;
+      width: 80%;
       height: 75%;
-      margin: 20px 12.5% 0 12.5%;
+      margin: 20px 10% 0 10%;
     }
 
     #imageGallery > div{
@@ -101,8 +252,28 @@
     /* blur the background image a bit so that the text can be more legible*/
     /* The image will not be blurred when hovering/clicking on the switch image buttons */
     #imageGallery > div:hover a img{
+
+      /* Apply a duration to make the blurring/un-blurring less abrupt */
+      transition: 500ms filter linear;
+      -webkit-transition: 500ms -webkit-filter linear;
+      -moz-transition: 500ms -moz-filter linear;
+      -o-transition: 500ms -o-filter linear;
+
       filter: blur(5px);
       -webkit-filter: blur(5px);
+
+    }
+
+    /* Un-blur the image */
+    #imageGallery > div:not(:hover) a img{
+      transition: 500ms filter linear;
+      -webkit-transition: 500ms -webkit-filter linear;
+      -moz-transition: 500ms -moz-filter linear;
+      -o-transition: 500ms -o-filter linear;
+
+      filter: blur(0px);
+      -webkit-filter: blur(0px);
+
     }
 
     #captionDiv{
@@ -194,11 +365,53 @@
 <aside class="rightSidebar"></aside>
 <main>
   <p class="breadcrumb"></p>
-  <div id="emptyDiv"></div>
+  <div id="emptyDiv">
+    <!-- This is the div of the accordion menu on other pages. Keeping it here to keep the layout consistent across pages -->
+  </div>
   <section>
     <h1 class="sectionTitle glow-blue">upcoming events</h1>
     <div id="newsDiv" class="right">
-      <!--http://www.discoverhongkong.com/eng/about-hktb/news.jsp#news4-->
+      <h2 class="sectionTitle glow-blue">News</h2>
+      <div class="scrollable">
+        <div class="items">
+          <div>
+            <div class="imgDiv">
+              <img src="http://www.discoverhongkong.com/eng/images/see-do/highlight-attractions/thumbnails/1.1.2.1-AOS.jpg" alt="Avenue of Stars">
+            </div>
+            <p><a href="">Avenue of Starsin Tsim Sha Tsui is closed for repair and improvement works, which are expected to be completed around the end of 2018</a>.</p>
+          </div>
+          <div>
+            <div class="imgDiv">
+              <img src="http://www.discoverhongkong.com/eng/images/see-do/culture-heritage/thumbnails/1.4.4.2.3-Hong-Kong-Space-Museum.jpg" alt="Hong Kong Space Museum">
+            </div>
+            <p><a href="">Hong Kong Space Museumis closed for renovation works until 1 March 2016</a>.</p>
+          </div>
+          <div>
+            <div class="imgDiv">
+              <img src="http://www.discoverhongkong.com/eng/images/about-hktb/news/news_MT_MichelleYeoh.jpg" alt="Kung Fu star Michelle Yeoh">
+            </div>
+            <p><a href="">Legendary kung fu star Michelle Yeoh’s wax figure joins Madame Tussauds Hong Kong</a>.</p>
+          </div>
+          <div>
+            <div class="imgDiv">
+              <img src="http://www.discoverhongkong.com/eng/images/see-do/arts-performance/thumbnails/1.3.4.6-Hong-Kong-Museum-of-Art.jpg" alt="HK Museum of Art">
+            </div>
+            <p><a href="">Hong Kong Museum of Art is now closed for a major renovation and expansion project, and is expected to reopen in 2018 or 2019</a>.</p>
+          </div>
+          <div>
+            <div class="imgDiv">
+              <img src="http://www.discoverhongkong.com/eng/images/about-hktb/news/news_hk-pals.jpg" alt="Visitor Center">
+            </div>
+            <p><a href="">Want to explore Hong Kong like a local? Come and talk to a Hong Kong Pal at one of our two in-town visitor centres</a>.</p>
+          </div>
+          <div>
+            <div class="imgDiv">
+              <img src="http://www.discoverhongkong.com/eng/images/about-hktb/news/news_10mostliked.jpg" alt="Hong Kong Architecture of the Century">
+            </div>
+            <p><a href="">Organised by Hong Kong Architecture Centre (HKAC), the results of ‘My 10 Most “Liked” Hong Kong Architecture of the Century’ have been announced</a>.</p>
+          </div>
+        </div>
+      </div>
     </div>
     <div id="eventsDiv">
       <ul>
