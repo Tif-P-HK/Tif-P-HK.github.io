@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CS601 / Tif Pun</title>
+  <link rel="stylesheet" href="http://js.arcgis.com/3.14/esri/css/esri.css">
+  <link rel="stylesheet" href="css/c3.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    aside{
+      border: none;
+    }
+
+    section{
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Side menu */
+    #sideMenuDiv{
+      width: 16%;
+      margin-right: 0;
+      float: left;
+      height: 100%;
+    }
+
+    .accordian {
+      height: 100%;
+      font-family:arial, sans-serif;
+      font-size: 12px;
+      font-weight:normal;
+      text-transform: capitalize;
+      color: #ffffff;
+      margin: 0 10px 0 0;
+      padding: 0;
+      list-style-type:none;
+    }
+
+    .accordian .menuHeader {
+      font-size: 1.3em;
+      line-height: 1.5em;
+      cursor: pointer;
+      padding: 10px 10px;
+      margin: 0;
+
+      background: -webkit-linear-gradient(top, #3f4347, #575e63);
+      background: -moz-linear-gradient(top, #575e63, #3f4347);
+      background: -o-linear-gradient(top, #575e63, #3f4347);
+      background: linear-gradient(top, #575e63, #3f4347);
+    }
+
+    .accordian .menuHeader:hover {
+      color: #FFBF00;
+    }
+
+    .accordian ul {
+      background: #989B9D;
+      padding: 0;
+      list-style: none;
+      border-radius: 5px;
+    }
+
+    .accordian ul li{
+      display: block;
+      margin: 0;
+      padding: 10px 15px;
+      border-bottom: 1px solid #5E656B;
+
+      font-size: 1.2em;
+      font-weight: bold;
+      letter-spacing: 1px;
+      line-height: 1.2em;
+      text-decoration: none;
+
+      -webkit-transition: all 100ms;
+      -moz-transition: all 100ms;
+      -o-transition: all 100ms;
+      transition: all 100ms;
+    }
+
+    .accordian ul li:hover {
+      background: #797E82;
+      border-left: 10px solid #FF6600;
+      color: #FFBF00;
+      cursor: pointer;
+    }
+
+    .currentItem{
+      -webkit-box-shadow: inset 0 0 10px 1px #5c6064;
+      -moz-box-shadow: inset 0 0 10px 1px #5c6064;
+      box-shadow: inset 0 0 10px 1px #5c6064;
+    }
+
+    .accordian ul {
+      display: none;
+    }
+
+    .accordian li.active ul {
+      display: block;
+    }
+
+    #mapDiv{
+      float: left;
+      height: 15%;
+      width: 65%;
+      margin: 0 10px 10px 0;
+    }
+
+    #hongKongMap{
+      height: 250px;
+      border-radius: 2px;
+    }
+
+    /* Details about a district */
+
+    #districtDescription{
+      margin-left: 12%;
+    }
+
+    #districtDescription ul{
+      margin-left: 80px;
+      list-style-type: square;
+      padding: 0;
+    }
+
+    #districtDescription ul li{
+      padding: 0.2em;
+    }
+
+    .externalSiteIcon{
+      float: right;
+      margin: 0 10px 0 0;
+      border-radius: 10px;
+      background-color: #ffffff;
+    }
+
+    #tripAdvisorUrl .externalSiteIcon{
+      margin: 0 10px 0 0;
+      padding: 10px 0;
+      width: 10%;
+      height: 10%;
+    }
+
+    #openRiceUrl .externalSiteIcon{
+      width: 8%;
+      height: 8%;
+      padding: 2px;
+    }
+  </style>
+</head>
+<body>
+<header id="header">
+  <h1 id="siteTitle"><span class="capitalize">hello, hong kong</span></h1>
+  <nav>
+    <ul id="mainMenu">
+      <li class="expandableItem currentPage"><a href="#">About HK</a>
+        <ul class="subMenu">
+          <li><a href="statistics.html">Facts</a></li>
+          <li><a href="districts.html">Districts</a></li>
+          <li class="currentPage"><a href="tips.html">Tips From Locals</a></li>
+        </ul>
+      </li>
+      <li><a href="thingsToDo.html">What to do</a></li>
+      <li><a href="transportation.html">Get Around</a></li>
+    </ul>
+  </nav>
+</header>
+<aside class="leftSidebar"></aside>
+<aside class="rightSidebar"></aside>
+<main>
+  <p class="breadcrumb"></p>
+
+  <section>
+    <div id="sideMenuDiv">
+      <ul class="accordian" id="districtMenu">
+        <li>
+          <h3 class="menuHeader" id="kowloon">Visiting HK</h3>
+          <ul>
+            <li id="kowloonCity">Data plan</li>
+            <li id="shamShuiPo">Electricity</li>
+            <li id="kwunTong">Water</li>
+            <li id="wongTaiSin">Smoking</li>
+            <li id="yauTsimMong">Coupons</li>
+            <li id="islands">Safety</li>
+          </ul>
+        </li>
+        <li class="active">
+          <h3 class="menuHeader" id="hkIsland">Get around</h3>
+          <ul>
+            <li id="central">MTR</li>
+            <li id="eastern">Taxi</li>
+            <li id="southern">Car rental</li>
+          </ul>
+        </li>
+        <li>
+          <h3 class="menuHeader" id="newTerritories">Stay like a Local</h3>
+          <ul>
+            <li id="kwaiTsing">Octopus Card</li>
+            <li id="north">Money</li>
+            <li id="saiKung">Dining</li>
+            <li id="shatin">In the MTR</li>
+            <li id="taiPo">Tipping</li>
+            <li id="tsuenWan">Plastic Bag Charge</li>
+            <li id="tuenMun">Sales tax</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div id="mapDiv" class="right">
+      <div id="hongKongMap"></div>
+    </div>
+
+
+    <div id="districtInfo">
+      <h1 id="districtTitleText" class="sectionTitle glow-blue"></h1>
+      <div id="districtDescription">
+        <!--The content will be generated by JavaScript-->
+      </div>
+      <div id="externalSitesLinks">
+        <!--Photo Attribution:
+         - "TripAdvisor" by Source. Licensed under Fair use via Wikipedia - https://en.wikipedia.org/wiki/File:TripAdvisor.png#/media/File:TripAdvisor.png
+         - "OpenRice (logo)" by Source. Licensed under Fair use via Wikipedia - https://en.wikipedia.org/wiki/File:OpenRice_(logo).gif#/media/File:OpenRice_(logo).gif
+         -->
+        <a id="tripAdvisorUrl" class="hide"><img src="img/220px-TripAdvisor.png" alt="Visit TripAdvisor" class="externalSiteIcon"/></a>
+        <a id="openRiceUrl" class="hide"><img src="img/OpenRice_(logo).gif" alt="Visit OpenRice" class="externalSiteIcon"/></a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <p>&copy; 2015, Tif Hang Kwai Pun</p>
+</footer>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/jquery-ui-1.11.4.min.js"></script>
+<script src="http://js.arcgis.com/3.14/"></script>
+<script src="js/script.js"></script>
+<script type="text/javascript">
+  require([
+    "esri/map", "esri/geometry/Point", "dojo/domReady!"
+  ], function(Map, Point) {
+    // When DOM is ready, create the map component,
+    var map = new Map("hongKongMap", {
+      center: [114.1, 22.35],
+      zoom: 10,
+      basemap: "streets"
+    });
+
+    /*
+     * Main functions
+     * */
+    loadJSON(function(response) {
+      // When DOM is ready, create a JSON "district" object based on the JSON file,
+      // then populate the page using the default "hongkong" object
+      this.districts = JSON.parse(response);
+      populatePage("hongkong");
+    });
+
+    function populatePage(districtId){
+      // Find the district to show based on the given id
+      var districts = $.grep(this.districts, function(item){
+        return item.id === districtId;
+      });
+
+      // Currently the JSON file only contains info for three districts (Central, Eastern, Kwun Tong).
+      // For those that don't have any data yet, fall back to the default
+      if(districts.length === 0){
+        districts = $.grep(this.districts, function(item){
+          return item.id === "hongkong";
+        });
+      }
+
+      this.district = districts[0];
+
+      //Use the district object to populate the following content:
+      // Recenter the map to the district
+      recenterMap();
+
+      // Create the images in the image gallery
+      createImages();
+
+      // Update district title and description
+      createDescription();
+    }
+
+    function recenterMap(){
+      // Recenter the map based on the district's location and the zoom level specified in the JSON object
+
+      map.centerAndZoom(new Point(this.district.location.center), this.district.location.zoom);
+    }
+
+    function createImages(){
+      // Create the images for the image gallery, then start the slideshow
+
+      var imagesDiv = $("#imageGallery");
+      var imageContainer;
+      var photos;
+
+      imagesDiv.children().remove();  //First, remove all exiting images from the image gallery
+      photos = this.district.photos;
+      for(var i=0; i<photos.length; i++){
+        imageContainer = $("<div/>").addClass("imageContainer");
+        if(i==0)
+          imageContainer.attr("id", "firstImg");
+        else
+          imageContainer.addClass("hide");
+
+        imagesDiv.append(
+          imageContainer
+            .append(
+              $("<img/>")
+                .attr("src", photos[i].src)
+                .attr("alt", photos[i].alt)
+            )
+            .append(
+              $("<span/>")
+                .html(photos[i].caption)
+            )
+        );
+      }
+
+      // if a timer was previously set to slide the images (i.e. this.interval != undefined)
+      // clear the timer and restart it for the current set of images
+      // Don't start the timer if the district has only one image (e.g. the Eastern district)
+      if(this.interval)
+        clearInterval(this.interval);
+      if($("#imageGallery").children().length > 1)
+        slideImages();
+    }
+
+    function createDescription(){
+      // Create the elements for the district title, description and icons to external sites
+
+      // Icons to external sites. Don't display if the URL info is missing
+      var tripAdvisorUrl = this.district.description.tripAdvisorUrl;
+      var tripAdvisorUrlUI = $("#tripAdvisorUrl");
+      if(tripAdvisorUrl !== ""){
+        tripAdvisorUrlUI.attr("href", tripAdvisorUrl);
+        tripAdvisorUrlUI.removeClass("hide");
+      }
+      else
+        tripAdvisorUrlUI.addClass("hide");
+
+      var openRiceUrl = this.district.description.openRiceUrl;
+      var openRiceUrlUI = $("#openRiceUrl");
+      if(openRiceUrl !== ""){
+        openRiceUrlUI.attr("href", openRiceUrl);
+        openRiceUrlUI.removeClass("hide");
+      }
+      else
+        openRiceUrlUI.addClass("hide");
+
+      // District title
+      var title = district.id === "hongkong" ? district.location.area : district.location.area + " > " + district.name;
+      $("#districtTitleText").text(title);
+
+      // District description
+      $("#districtDescription").children().remove();
+      $("#districtDescription").append(district.description.details);
+    }
+
+    /*
+     * Functions related to the side menu
+     * */
+    $(".menuHeader").click(function () {
+      // Logic for controlling the opening/closing of the side menu items
+
+      $(".accordian ul").slideUp();
+
+      if (!$(this).next().is(":visible")) {
+        $(this).next().slideDown();
+      }
+    });
+
+    $("#districtMenu li ul li").click(function(){
+      // A menu item is clicked, remove the currentItem class from the existing item
+      // and apply it to the clicked item
+      $(".currentItem").removeClass("currentItem");
+      $(this).addClass("currentItem");
+
+      // Use the id of the menu item to look up for the district info from the JSON object
+      populatePage($(this)[0].id);
+    });
+
+    /*
+     * Helper functions
+     * */
+    function loadJSON(callback) {
+      //JSON data location http://www.jsoneditoronline.org/?id=2e437ec4ebfb046931872d19afe071b6
+      var xobj = new XMLHttpRequest();
+      xobj.overrideMimeType("application/json");
+      xobj.open('GET', 'data/districts.json', true);
+      xobj.onreadystatechange = function () {
+        if (xobj.readyState == 4 && xobj.status == "200") {
+          callback(xobj.responseText);
+        }
+      };
+      xobj.send(null);
+    }
+
+    function slideImages(){
+      // Set a timer to slide images that belong to the same districts
+      // Reference: http://jsfiddle.net/xYWzU/9/
+
+      this.interval = setInterval(function(){
+        // For every 6 seconds, slide out current image, then slide in the next image
+        var hideOptions = {
+          "direction": "left",
+          "mode": "hide"
+        };
+        var showOptions = {
+          "direction": "right",
+          "mode": "show"
+        };
+
+        var firstImage = $("#firstImg");
+        var currentImage = $(".imageContainer:visible");
+        // If the current image is the last one, set its next image to be the first image
+        var nextImage = currentImage.is(":last-child")? firstImage: currentImage.next(".imageContainer");
+
+        currentImage.effect("slide", hideOptions, 2000);
+        nextImage.effect("slide", showOptions, 2000);
+
+      }, 6000);
+    }
+  });
+</script>
+</body>
+</html>

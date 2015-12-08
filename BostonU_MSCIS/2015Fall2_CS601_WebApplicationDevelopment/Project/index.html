@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CS601 (Tif Pun)</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body{
+      height: 1175px;
+    }
+
+    #siteCoverPhoto{
+      width: 1820px;
+      height: 1190px;
+      border-radius: 5px;
+    }
+
+    #welcomeBanner{
+      position: fixed;
+      top: 45%;
+      left: 40%;
+      text-align: center;
+    }
+
+    #welcomeText{
+      font: 2.3em Arial, sans-serif;
+      font-weight: bold;
+      color: #FFFFFF;
+      padding-bottom: 30px;
+      text-shadow: 0px -2px 0px #CCCCCC,
+      0px 2px 3px #333;
+    }
+
+    #openStatisticsPage{
+      width: 220px;
+      height: 55px;
+      border: 5px solid #FFFFFF;
+      background: none;
+      color: #FFFFFF;
+      font: 1.3em Arial, sans-serif;
+      transition: all 1s ease;
+      font-weight: bold;
+    }
+
+    #openStatisticsPage:hover{
+      width: 230px;
+      height: 58px;
+      background-color: #FF6600;
+      border: 5px solid #FF6600;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<header id="header">
+  <h1 id="siteTitle"><span class="capitalize">hello, hong kong</span></h1>
+  <nav>
+    <ul id="mainMenu">
+      <li class="expandableItem currentPage"><a href="#">About HK</a>
+        <ul class="subMenu">
+          <li><a href="statistics.html">Facts</a></li>
+          <li><a href="districts.html">Districts</a></li>
+        </ul>
+      </li>
+      <li><a href="tips.html">Tips From Locals</a></li>
+      <li><a href="news.html">News</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <div id="welcomeBanner">
+    <p class="capitalize" id="welcomeText">welcome&nbsp;to&nbsp;&nbsp;hong&nbsp;kong</p>
+    <a href="statistics.html" class="navigation">
+      <button type="button" id="openStatisticsPage" class="capitalize">start&nbsp;&nbsp;exploring</button>
+    </a>
+  </div>
+  <img src="img/IMG_13082.jpg" alt="Victoria Harbor, Hong Kong" id="siteCoverPhoto"/>
+</main>
+<footer>
+  <p>&copy; 2015, Tif Hang Kwai Pun</p>
+</footer>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

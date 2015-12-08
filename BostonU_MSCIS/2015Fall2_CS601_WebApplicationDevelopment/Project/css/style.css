@@ -1,0 +1,330 @@
+/***
+	 Defining styles from generic to specific; First start with elements
+	 ***/
+
+body {
+  /* Image adopted from http://subtlepatterns.com/ under the creative commons license
+   (available at: http://creativecommons.org/licenses/by-sa/3.0/). No modification was
+   made to the image.*/
+  background-image: url("../img/dark_embroidery.png");
+  background-repeat: repeat;
+  font: normal 90% sans-serif;
+  color: #FFFFFF;
+  width: 1830px;
+  /*height: 1500px;*/
+  height: 100%;
+  margin: auto;
+  line-height: 1.5em;
+}
+
+header{
+  background-image: url("../img/dark_embroidery.png");
+  background-repeat: repeat;
+  color: #FF6600;
+  border-bottom: 2px solid #EF9C00;
+  height: 80px;
+  position: fixed;
+  z-index: 98;
+  width: 1830px;
+}
+
+#siteTitle{
+  font-size: 30px;
+  margin-top: 30px;
+  float: left;
+  text-shadow:
+    0px -1px 0px #d13728,
+    2px 2px 5px #EF9C00;
+}
+
+/******** Styles for the navigation menu ********/
+nav{
+  float: right;
+}
+
+#mainMenu{
+  font-size: 16px;
+  margin-top: 10px;
+  list-style-type: none;
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+}
+
+.expandableItem {
+  background-image:url('../img/arrow-down.png');
+  background-position: 90% 50%;
+  background-repeat: no-repeat;
+}
+
+#mainMenu::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* one tab e.g. About HK */
+#mainMenu li{
+  float: left;
+  width: 145px;
+  padding: 24px 0;
+  text-align: center;
+  margin-right: 3px;
+}
+
+#mainMenu > li {
+  border-right: 5px double #4a4a4a;
+  background-color: transparent;
+}
+
+#mainMenu > li:last-of-type{
+  border-right: 0;
+}
+
+/* one group of submenu items */
+#mainMenu > li ul{
+  list-style: none;
+  display: none;
+  margin-top: 0;
+  position: absolute;
+  top: 85%;
+}
+
+#mainMenu > li ul li{
+  border-top: 5px double #4a4a4a;
+  background-color: #3a3a3a;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: left;
+  float: none;
+}
+
+.subMenu > li:last-of-type{
+  border-bottom: 5px double #4a4a4a;
+}
+
+nav a{
+  font-weight: bold;
+  color: #FFFFFF;
+  text-decoration: none;
+  border: none;
+}
+
+nav a:hover, .navigation, .navigation:hover{
+  border: none;
+}
+
+/******** Styles for main ********/
+main{
+  /*width: 1410px;*/
+  width: 77%;
+  float: left;
+  height: 100%;
+  margin: 90px 5px 0 5px;
+  padding: 0 2px 0 2px;
+  /*margin: 100px 5px 0 5px;*/
+}
+
+aside{
+  /* Specify the same width for both sidebars so that the main section will
+  stay at the center*/
+  /*width: 200px;*/
+  width: 10%;
+  height: 100%;
+  margin-top: 100px;
+  border: 1px solid yellow;
+}
+
+
+/* Side menu */
+#sideMenuDiv{
+  width: 16%;
+  margin: 40px 0 0 0;
+  float: left;
+  height: 50%;
+  position: relative;
+  text-transform: capitalize;
+}
+
+.accordian {
+  height: 100%;
+  font-family:arial, sans-serif;
+  font-size: 12px;
+  font-weight:normal;
+  color: #ffffff;
+  margin: 0 10px 0 0;
+  padding: 0;
+  list-style-type:none;
+}
+
+.accordian .menuHeader {
+  font-size: 1.3em;
+  line-height: 1.5em;
+  cursor: pointer;
+  padding: 10px 10px;
+  margin: 0;
+
+  background: -webkit-linear-gradient(top, #3f4347, #575e63);
+  background: -moz-linear-gradient(top, #575e63, #3f4347);
+  background: -o-linear-gradient(top, #575e63, #3f4347);
+  background: linear-gradient(top, #575e63, #3f4347);
+}
+
+.accordian .menuHeader:hover {
+  color: #FFBF00;
+}
+
+.accordian ul {
+  background: #989B9D;
+  padding: 0;
+  list-style: none;
+  border-radius: 5px;
+}
+
+.accordian ul li{
+  display: block;
+  margin: 0;
+  padding: 10px 15px;
+  border-bottom: 1px solid #5E656B;
+
+  font-size: 1.2em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 1.2em;
+  text-decoration: none;
+
+  -webkit-transition: all 100ms;
+  -moz-transition: all 100ms;
+  -o-transition: all 100ms;
+  transition: all 100ms;
+}
+
+.accordian ul li:hover {
+  background: #797E82;
+  border-left: 10px solid #FF6600;
+  color: #FFBF00;
+  cursor: pointer;
+}
+
+.accordian ul li a{
+  border: none;
+}
+
+.currentItem{
+  -webkit-box-shadow: inset 0 0 10px 1px #5c6064;
+  -moz-box-shadow: inset 0 0 10px 1px #5c6064;
+  box-shadow: inset 0 0 10px 1px #5c6064;
+}
+
+.accordian ul {
+  display: none;
+}
+
+.accordian li.active ul {
+  display: block;
+}
+
+footer{
+  /* Clear the floating of the sidebars*/
+  clear: both;
+  margin-top: 100%;
+}
+
+footer p {
+  font-size: 0.8em;
+  text-align: center;
+}
+
+a{
+  color: #FFFFFF;
+  text-decoration: none;
+  border-bottom: 1px dashed #FFFFFF;
+  /*#FFBF00*/
+}
+
+a:hover{
+  color: #FFBF00;
+  cursor: pointer;
+  border-bottom: 1px dashed #FFBF00;
+}
+
+strong{
+  font-size: 1.5em;
+}
+
+.leftSidebar{
+  float: left;
+}
+
+.rightSidebar{
+  float: right;
+}
+
+.capitalize{
+  text-transform: uppercase;
+}
+
+h1{
+  font-size: 1.8em;
+  font-family: "Segoe UI",Arial,sans-serif;
+}
+
+.sectionTitle{
+  text-transform: capitalize;
+  margin-bottom: 5px;
+}
+
+/*Styles for breadcrumb*/
+.breadcrumb{
+  font: 0.9em Arial;
+  color: #EF9C00;
+  border-bottom: 1px dashed #EF9C00;
+  display: inline;
+  margin-bottom: 5px;
+}
+
+.hide{
+  display: none;
+}
+
+.left{
+  float: left;
+}
+
+.right{
+  float: right;
+}
+
+.noFloat{
+  clear: both;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.justify{
+  text-align: justify;
+}
+
+.chartLabel{
+  color: #FFFFFF;
+}
+
+.smallfont{
+  font: 0.9em sans-serif;
+  line-height: 1.5em;
+}
+
+.glow-blue {
+  text-shadow:
+    -2px -2px 4px #4F8ABF,
+    2px -2px 4px #4F8ABF,
+    -2px 2px 4px #4F8ABF,
+    2px 2px 4px #4F8ABF;
+}
+
+.paragraphTitle{
+  font-weight: bold;
+  text-transform: capitalize;
+}

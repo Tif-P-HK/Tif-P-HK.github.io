@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CS601 / Tif Pun</title>
+  <link rel="stylesheet" href="http://js.arcgis.com/3.14/esri/css/esri.css">
+  <link rel="stylesheet" href="css/c3.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    aside{
+      border: none;
+    }
+
+    body{
+      height: 1500px;
+    }
+
+    #emptyDiv{
+      width: 16%;
+      height: 100%;
+      float: left;
+    }
+
+    section{
+      width: 100%;
+      height: 100%;
+    }
+
+    /* News */
+    #newsDiv{
+      width: 20%;
+      height: 50%;
+      background: #3f4347;
+    }
+
+    /* Events */
+    /******** Styles for the navigation menu ********/
+    #eventsDiv{
+      margin: 20px 10px 0 16%;
+      width: 890px;
+      height: 430px;
+    }
+
+    #eventsDiv ul{
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 12px;
+    }
+
+    #eventsDiv ul li{
+      display: inline;
+      padding: 10px 15px;
+      margin-right: 2px;
+
+      font-family: arial, sans-serif;
+      font-weight: normal;
+      color: #ffffff;
+      border-radius: 5px;
+
+      font-size: 1.3em;
+      line-height: 1.5em;
+
+      background: #3f4347;
+    }
+
+    #eventsDiv ul li.current{
+      padding-bottom: 19px;
+    }
+
+    #eventsDiv ul li a{
+      font-weight: bold;
+    }
+
+    #imageGallery{
+      margin: 0;
+      height: 100%;
+
+      /* Image adopted from http://subtlepatterns.com/ under the creative commons license
+       (available at: http://creativecommons.org/licenses/by-sa/3.0/). No modification was
+       made to the image.*/
+      background-image: url("img/grey_wash_wall.png");
+      background-repeat: repeat;
+
+      border: 25px solid #3f4347;
+    }
+
+    .eventsOnMonth{
+      position: relative;
+    }
+
+    .eventsOnMonth img{
+      width: 75%;
+      height: 75%;
+      margin: 20px 12.5% 0 12.5%;
+    }
+
+    #imageGallery > div{
+      height: 383px;
+    }
+
+    /* blur the background image a bit so that the text can be more legible*/
+    /* The image will not be blurred when hovering/clicking on the switch image buttons */
+    #imageGallery > div:hover a img{
+      filter: blur(5px);
+      -webkit-filter: blur(5px);
+    }
+
+    #captionDiv{
+      /*margin: 33px 12.5% ;*/
+      margin: 15px 14.5%;
+      bottom: 0;
+      /*height: 0;*/
+      width: 69%;
+      height: 35%;
+
+      padding: 10px;
+      border-radius: 3px;
+
+      position: absolute;
+      overflow: hidden;
+
+      /* Using rgba on background-color so that the text on top will be unaffected by the opacity*/
+      background-color: rgba(255, 255, 255, 0.35);
+
+      font-size: 0.9em;
+      color: #000000;
+      text-shadow:
+        -1px -1px 0 #FFFFFF,
+        1px -1px 0 #FFFFFF,
+        -1px 1px 0 #FFFFFF,
+        1px 1px 0 #FFFFFF;
+    }
+
+    .bottomButtonDiv{
+      display: block;
+      width: 113px;
+
+      margin: 10px auto auto auto;
+    }
+
+    .bottomButtonDiv div{
+      display: inline;
+    }
+
+    input[type="button"]{
+      display: inline;
+      border-radius: 100%;
+      width: 25px;
+      padding: 2px;
+      margin-right: 10px;
+
+      background: #4F8ABF;
+      border: 4px solid #1f77b4;
+    }
+
+    input[type="button"]:hover{
+      background: #FFFFFF;
+      cursor: pointer;
+    }
+
+    .selectedBtn{
+      background: #FFFFFF;
+    }
+
+    /* remove button's outline when it is clicked or active*/
+    input[type="button"]:focus,
+    input[type="button"]:active{
+      outline: 0;
+      background-color: #FFFFFF;
+    }
+
+    a, a:hover{
+      border: none;
+    }
+  </style>
+</head>
+<body>
+<header id="header">
+  <h1 id="siteTitle"><span class="capitalize">hello, hong kong</span></h1>
+  <nav>
+    <ul id="mainMenu">
+      <li class="expandableItem"><a href="#">About HK</a>
+        <ul class="subMenu">
+          <li><a href="statistics.html">Facts</a></li>
+          <li><a href="districts.html">Districts</a></li>
+        </ul>
+      </li>
+      <li><a href="tips.html">Tips From Locals</a></li>
+      <li class="currentPage"><a href="news.html">News</a></li>
+    </ul>
+  </nav>
+</header>
+<aside class="leftSidebar"></aside>
+<aside class="rightSidebar"></aside>
+<main>
+  <p class="breadcrumb"></p>
+  <div id="emptyDiv"></div>
+  <section>
+    <h1 class="sectionTitle glow-blue">upcoming events</h1>
+    <div id="newsDiv" class="right">
+      <!--http://www.discoverhongkong.com/eng/about-hktb/news.jsp#news4-->
+    </div>
+    <div id="eventsDiv">
+      <ul>
+        <li class="current"><a href="#">Now</a></li>
+        <li><a href="#">Jan 2016</a></li>
+        <li><a href="#">Feb 2016</a></li>
+        <li><a href="#">Mar 2016</a></li>
+      </ul>
+      <div id="imageGallery">
+        <!-- Adding an extra div here so that the image can be blurred whenever mouse hovers here -->
+        <div>
+          <!--
+              Source of the images and contents on this page:
+              http://www.discoverhongkong.com/eng/index.jsp
+          -->
+          <div class="eventsOnMonth">
+            <a class="img1" href="http://gohongkong.about.com/od/eventsinhongkong/tp/newyearinhongkong.htm">
+              <img src="http://www.discoverhongkong.com/eng/images/home/highlights/NYCD_610x356_en.jpg" alt="Hong Kong New Year Countdown Celebrations">
+            </a>
+
+            <a class="hide" href="http://www.discoverhongkong.com/eng/see-do/highlight-attractions/harbour-view/hk-pulse.jsp">
+              <img src="http://www.discoverhongkong.com/eng/images/home/highlights/hkpulse_610x356_en.jpg" alt="Hong Kong Pulse 3D Light Show">
+            </a>
+
+            <a class="hide" href="http://www.discoverhongkong.com/eng/see-do/events-festivals/events-calendar/details.jsp?id=72082">
+              <img src="http://www.discoverhongkong.com/eng/images/home/highlights/HKIR_610x356_en.jpg" alt="Hong Kong International Races (Horseracing)">
+            </a>
+
+            <div id="captionDiv">
+              <p>Not to be confused with Chinese New Year in Hong Kong, which is the biggest celebration of the year, New Year in Hong Kong, meaning December 31st, is also the source of big parties and even bigger hangovers. Below, you’ll find our top recommendations, from Hong Kong’s own Times Square to club parties, to enjoy the countdown.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottomButtonDiv">
+          <input type="button" class="imgBtn selectedBtn">
+          <input type="button" class="imgBtn">
+          <input type="button" class="imgBtn">
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <p>&copy; 2015, Tif Hang Kwai Pun</p>
+</footer>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/jquery-ui-1.11.4.min.js"></script>
+<script src="js/script.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $("#eventsDiv ul li").click(function(){
+      // Function for the menu at the top:
+      // Apply the "current" class to the clicked menu item
+      $("#eventsDiv ul li").removeClass("current");
+      $(this).addClass("current");
+    });
+
+    $(".imgBtn").click(function(){
+      // Function for the image switching buttons:
+      // Show the corresponding image when a button is clicked
+      var btn = $(this);
+      var btnNode = btn[0];
+      var toShowIndex = 0;
+      var toHideIndex = 0;
+      var anchors = $(".eventsOnMonth a");
+
+      // Find the index of the button using previousElementSibling instead of harding the id
+      btn.addClass("selectedBtn");
+      while(btnNode = btnNode.previousElementSibling)
+        toShowIndex++;
+
+      // Find the index of the currently visible anchor element
+      while(toHideIndex < anchors.length){
+        if(!anchors[toHideIndex].classList.contains("hide"))
+          break;
+        else
+          toHideIndex++;
+      }
+
+      // If the button corresponding to the currently visible anchoris clicked,
+      // then do nothing
+      if(toHideIndex === toShowIndex)
+        return;
+
+      // First hide all anchors, then show the one selected
+      anchors.addClass("hide");
+      anchors[toShowIndex].classList.remove("hide");
+
+    });
+  });
+</script>
+</body>
+</html>
