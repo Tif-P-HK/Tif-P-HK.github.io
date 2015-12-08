@@ -1,0 +1,91 @@
+/* CSS for tips.html */
+
+section{
+  width: 100%;
+  height: 100%;
+}
+
+#tips{
+  width: 63%;
+  margin-left: 17%;
+}
+
+.tip{
+  text-align: justify;
+  min-height: 180px;
+}
+
+.imgDiv{
+  width: 150px;
+  height: 150px;
+  float: right;
+  overflow: hidden;
+  margin: 5px 0 0 10px;
+
+}
+
+.imgDiv img{
+  max-width: 150px;
+  max-height: 150px;
+  overflow: hidden;
+  -moz-transition: all .5s;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  border-radius: 10px;
+}
+
+.imgDiv img:hover{
+  cursor: pointer;
+  -moz-transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
+}
+
+.description{
+  margin-left: 10px;
+  padding-right: 165px;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  z-index: 99;
+  background: black;
+}
+
+#lightbox {
+  position: fixed;
+}
+
+#expandedImg{
+  max-width: 2400px;
+  max-height: 1000px;
+}
+
+.description p:last-of-type{
+  margin-bottom: 5px;
+}
+
+.description details{
+  font-size: 0.9em;
+}
+
+.description details summary{
+  font-weight: bold;
+  outline: none;
+
+}
+
+.description summary:hover{
+  cursor: pointer;
+}
+
+.description details ul{
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: square;
+}

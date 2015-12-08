@@ -1,0 +1,99 @@
+/* CSS for statistics.html */
+
+#mapDiv{
+  height: 15%;
+  margin: 10px 0;
+}
+
+#hongKongMap{
+  height: 250px;
+}
+
+#hongKongLogo{
+  margin: 10px 13px 10px 0;
+  border-radius: 100%;
+  float: left;
+  -webkit-shape-outside:circle();
+  shape-outside:circle();
+}
+
+.box{
+  width: 48%;
+  height: 180px;
+  margin: 5px 0 15px 20px;
+  border-bottom: 1px dashed #FFFFFF;
+}
+
+.chart{
+  width: 40%;
+  font-size: 0.85em;
+}
+
+.smallDiv{
+  height: 150px;
+}
+
+#weatherChart svg{
+  overflow: visible;
+}
+
+.c3-legend-item{
+  opacity: 0;
+}
+
+#unitToggleDiv{
+  height: 25px;
+  margin: 0;
+  padding: 0 30px 0 0;
+}
+
+.chartDescription{
+  width: 60%;
+}
+
+.c3-chart-arc text,
+.c3-chart-arcs .c3-chart-arcs-gauge-max,
+.c3-chart-arcs .c3-chart-arcs-gauge-min,
+.c3-chart-arc .c3-gauge-value
+{
+  fill: #FFFFFF;
+  text-shadow:
+    -1px -1px 0 #000000,
+    1px -1px 0 #000000,
+    -1px 1px 0 #000000,
+    1px 1px 0 #000000;
+}
+
+.c3 path, .c3 line, .c3 text{
+  font-size: 1.1em;
+}
+
+.c3 text, #homeSizeGraphic text{
+  fill: #FFFFFF;
+  text-shadow:
+    -1px -1px 0 #000000,
+    1px -1px 0 #000000,
+    -1px 1px 0 #000000,
+    1px 1px 0 #000000;
+}
+
+.c3-tooltip td {
+  background-color: dimgray;
+}
+
+.c3-circle {
+  stroke-width: 1px;
+  stroke: white;
+}
+
+#homeSizeGraphic line,#homeSizeGraphic rect{
+  stroke: #FFFFFF;
+}
+
+#homeSizeGraphic rect:nth-last-of-type(1){
+  fill:#1f77b4;
+}
+
+#homeSizeGraphic > rect:nth-last-of-type(2){
+  fill:#064877;
+}

@@ -3,336 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>CS601 / Tif Pun</title>
-  <link rel="stylesheet" href="http://js.arcgis.com/3.14/esri/css/esri.css">
+  <link rel="icon" type="image/png" href="img/icon.png" sizes="32x32" />
+  <link rel="stylesheet" href="//js.arcgis.com/3.14/esri/css/esri.css">
   <link rel="stylesheet" href="css/c3.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    aside{
-      border: none;
-    }
-
-    body{
-      height: 1500px;
-    }
-
-    #emptyDiv{
-      width: 16%;
-      height: 100%;
-      float: left;
-    }
-
-    section{
-      width: 100%;
-      height: 100%;
-    }
-
-    /* News */
-    #newsDiv{
-      width: 25%;
-    }
-
-    #newsDiv h2{
-      margin-bottom: 15px;;
-    }
-
-    .scrollable{
-      height: 400px;
-      width: 100%;
-      border: solid #3f4347;
-      border-width: 40px 10px 35px 10px;
-      background-image: url("img/grey_wash_wall.png");
-
-      overflow: hidden;
-      position: relative;
-    }
-
-    .items{
-      /*Reference:
-      http://jsfiddle.net/spliter/g2PE7/
-      */
-
-      -webkit-animation: scroll 12s infinite;
-      -moz-animation: scroll 12s infinite;
-      -ms-animation: scroll 12s infinite;
-    }
-
-    .items:hover{
-      -webkit-animation-play-state: paused;
-      animation-play-state: paused;
-    }
-
-    .items:not(:hover){
-      -webkit-animation-play-state: running;
-      animation-play-state: running;
-    }
-
-    .items > div{
-      /* keep the total height = 100px */
-      height: 94px;
-      padding: 3px;
-
-      margin: 0 10px;
-      overflow: hidden;
-      border-bottom: 1px dashed #FFFFFF;
-    }
-
-    .items > div:hover{
-      border-left: 10px solid transparent;
-    }
-
-    .imgDiv + p:hover{
-      cursor: pointer;
-    }
-
-    .imgDiv{
-      height: 90px;
-      width: 90px;
-      margin: 10px 5px auto auto;
-      display: block;
-      float: left;
-    }
-
-    .imgDiv img{
-      height: 80%;
-      width: 100%;
-    }
-
-    .items div p{
-      margin: 5px;
-      font-size: 0.9em;
-    }
-
-
-    @-webkit-keyframes scroll {
-      0% {
-        margin-top: 0;
-      }
-      27.33% {
-        margin-top: 0
-      }
-      33.33% {
-        margin-top: -100px;
-      }
-      60.66% {
-        margin-top: -100px;
-      }
-      66.66% {
-        margin-top: -200px;
-      }
-      94.99% {
-        margin-top: -200px;
-      }
-      10% {
-        margin-top: 0
-      }
-    }
-
-    @-moz-keyframes scroll {
-      0% {
-        margin-top: 0;
-      }
-      27.33% {
-        margin-top: 0
-      }
-      33.33% {
-        margin-top: -100px;
-      }
-      60.66% {
-        margin-top: -100px;
-      }
-      66.66% {
-        margin-top: -200px;
-      }
-      94.99% {
-        margin-top: -200px;
-      }
-      10% {
-        margin-top: 0
-      }
-    }
-
-    @-ms-keyframes scroll {
-      0% {
-        margin-top: 0;
-      }
-      27.33% {
-        margin-top: 0
-      }
-      33.33% {
-        margin-top: -100px;
-      }
-      60.66% {
-        margin-top: -100px;
-      }
-      66.66% {
-        margin-top: -200px;
-      }
-      94.99% {
-        margin-top: -200px;
-      }
-      10% {
-        margin-top: 0
-      }
-    }
-
-    /* Upcoming events */
-    /******** Styles for the navigation menu ********/
-    #eventsDiv{
-      margin: 20px 10px 0 16%;
-      width: 800px;
-      height: 430px;
-    }
-
-    #eventsDiv ul{
-      list-style-type: none;
-      padding: 0;
-      margin-bottom: 12px;
-    }
-
-    #eventsDiv ul li{
-      display: inline;
-      padding: 10px 15px;
-      margin-right: 2px;
-
-      font-family: arial, sans-serif;
-      font-weight: normal;
-      color: #ffffff;
-      border-radius: 5px;
-
-      font-size: 1.3em;
-      line-height: 1.5em;
-
-      background: #3f4347;
-    }
-
-    #eventsDiv ul li.current{
-      padding-bottom: 19px;
-    }
-
-    #eventsDiv ul li a{
-      font-weight: bold;
-    }
-
-    #notAvailableTextDiv{
-      margin-top: 25%;
-      height: 30px;
-      text-align: center;
-      position: relative;
-      font-size: 3em;
-    }
-
-    #imageGallery{
-      margin: 0;
-      height: 100%;
-
-      /* Image adopted from http://subtlepatterns.com/ under the creative commons license
-       (available at: http://creativecommons.org/licenses/by-sa/3.0/). No modification was
-       made to the image.*/
-      background-image: url("img/grey_wash_wall.png");
-      background-repeat: repeat;
-
-      border: solid #3f4347;
-      border-width: 20px 10px;
-    }
-
-    .eventsOnMonth{
-      position: relative;
-    }
-
-    .eventsOnMonth img{
-      width: 80%;
-      height: 75%;
-      margin: 20px 10% 0 10%;
-    }
-
-    #imageGallery > div{
-      height: 383px;
-    }
-
-    /* blur the background image a bit so that the text can be more legible*/
-    /* The image will not be blurred when hovering/clicking on the switch image buttons */
-    #imageGallery > div:hover a img{
-
-      /* Apply a duration to make the blurring/un-blurring less abrupt */
-      transition: 500ms filter linear;
-      -webkit-transition: 500ms -webkit-filter linear;
-      -moz-transition: 500ms -moz-filter linear;
-      -o-transition: 500ms -o-filter linear;
-
-      filter: blur(5px);
-      -webkit-filter: blur(5px);
-
-    }
-
-    /* Un-blur the image */
-    #imageGallery > div:not(:hover) a img{
-      transition: 500ms filter linear;
-      -webkit-transition: 500ms -webkit-filter linear;
-      -moz-transition: 500ms -moz-filter linear;
-      -o-transition: 500ms -o-filter linear;
-
-      filter: blur(0px);
-      -webkit-filter: blur(0px);
-
-    }
-
-    #captionDiv{
-      /*margin: 33px 12.5% ;*/
-      margin: 15px 14.5%;
-      bottom: 0;
-      /*height: 0;*/
-      width: 69%;
-      height: 35%;
-
-      padding: 10px;
-      border-radius: 3px;
-
-      position: absolute;
-      overflow: hidden;
-
-      /* Using rgba on background-color so that the text on top will be unaffected by the opacity*/
-      background-color: rgba(255, 255, 255, 0.35);
-
-      font-size: 0.9em;
-      color: #000000;
-      text-shadow:
-        -1px -1px 0 #FFFFFF,
-        1px -1px 0 #FFFFFF,
-        -1px 1px 0 #FFFFFF,
-        1px 1px 0 #FFFFFF;
-    }
-
-    a, a:hover{
-      border: none;
-    }
-
-    .nav-dots{
-      width: 100%;
-      margin-top: 10px;
-      text-align: center;
-    }
-
-    .nav-dots label{
-      border-radius: 100%;
-      display: inline-block;
-      position: relative;
-      background-color: #FFFFFF;
-
-      width: 11px;
-      height: 11px;
-      margin: 0 4px;
-    }
-
-    .nav-dots label:hover {
-      cursor: pointer;
-      background-color: #FFBF00;
-    }
-
-  </style>
+  <link rel="stylesheet" href="css/news.css">
 </head>
 <body>
 <header id="header">
-  <h1 id="siteTitle"><span class="capitalize">hello, hong kong</span></h1>
+  <h1 class="siteTitle capitalize"><a href="index.html">hello, hong kong</a></h1>
   <nav>
     <ul id="mainMenu">
       <li class="expandableItem"><a href="#">About HK</a>
@@ -346,14 +25,19 @@
     </ul>
   </nav>
 </header>
+
 <aside class="leftSidebar"></aside>
 <aside class="rightSidebar"></aside>
+
 <main>
   <p class="breadcrumb"></p>
   <div id="emptyDiv">
-    <!-- This is the div of the accordion menu on other pages. Keeping it here to keep the layout consistent across pages -->
+    <!-- This is the div of the accordion menu on other pages.
+    Keeping it here to keep the layout consistent across pages -->
   </div>
-  <section>
+
+  <!-- Div showing the upcoming events -->
+  <div>
     <h1 class="sectionTitle glow-blue">upcoming events</h1>
     <div id="newsDiv" class="right">
       <h2 class="sectionTitle glow-blue">News</h2>
@@ -361,37 +45,37 @@
         <div class="items">
           <div>
             <div class="imgDiv">
-              <img src="http://www.discoverhongkong.com/eng/images/see-do/highlight-attractions/thumbnails/1.1.2.1-AOS.jpg" alt="Avenue of Stars">
+              <img src="//www.discoverhongkong.com/eng/images/see-do/highlight-attractions/thumbnails/1.1.2.1-AOS.jpg" alt="Avenue of Stars">
             </div>
             <p><a href="">Avenue of Starsin Tsim Sha Tsui is closed for repair and improvement works, which are expected to be completed around the end of 2018</a>.</p>
           </div>
           <div>
             <div class="imgDiv">
-              <img src="http://www.discoverhongkong.com/eng/images/see-do/culture-heritage/thumbnails/1.4.4.2.3-Hong-Kong-Space-Museum.jpg" alt="Hong Kong Space Museum">
+              <img src="//www.discoverhongkong.com/eng/images/see-do/culture-heritage/thumbnails/1.4.4.2.3-Hong-Kong-Space-Museum.jpg" alt="Hong Kong Space Museum">
             </div>
             <p><a href="">Hong Kong Space Museumis closed for renovation works until 1 March 2016</a>.</p>
           </div>
           <div>
             <div class="imgDiv">
-              <img src="http://www.discoverhongkong.com/eng/images/about-hktb/news/news_MT_MichelleYeoh.jpg" alt="Kung Fu star Michelle Yeoh">
+              <img src="//www.discoverhongkong.com/eng/images/about-hktb/news/news_MT_MichelleYeoh.jpg" alt="Kung Fu star Michelle Yeoh">
             </div>
             <p><a href="">Legendary kung fu star Michelle Yeoh’s wax figure joins Madame Tussauds Hong Kong</a>.</p>
           </div>
           <div>
             <div class="imgDiv">
-              <img src="http://www.discoverhongkong.com/eng/images/see-do/arts-performance/thumbnails/1.3.4.6-Hong-Kong-Museum-of-Art.jpg" alt="HK Museum of Art">
+              <img src="//www.discoverhongkong.com/eng/images/see-do/arts-performance/thumbnails/1.3.4.6-Hong-Kong-Museum-of-Art.jpg" alt="HK Museum of Art">
             </div>
             <p><a href="">Hong Kong Museum of Art is now closed for a major renovation and expansion project, and is expected to reopen in 2018 or 2019</a>.</p>
           </div>
           <div>
             <div class="imgDiv">
-              <img src="http://www.discoverhongkong.com/eng/images/about-hktb/news/news_hk-pals.jpg" alt="Visitor Center">
+              <img src="//www.discoverhongkong.com/eng/images/about-hktb/news/news_hk-pals.jpg" alt="Visitor Center">
             </div>
             <p><a href="">Want to explore Hong Kong like a local? Come and talk to a Hong Kong Pal at one of our two in-town visitor centres</a>.</p>
           </div>
           <div>
             <div class="imgDiv">
-              <img src="http://www.discoverhongkong.com/eng/images/about-hktb/news/news_10mostliked.jpg" alt="Hong Kong Architecture of the Century">
+              <img src="//www.discoverhongkong.com/eng/images/about-hktb/news/news_10mostliked.jpg" alt="Hong Kong Architecture of the Century">
             </div>
             <p><a href="">Organised by Hong Kong Architecture Centre (HKAC), the results of ‘My 10 Most “Liked” Hong Kong Architecture of the Century’ have been announced</a>.</p>
           </div>
@@ -412,42 +96,36 @@
         </div>
 
         <!--
-             Adding this div here so that the images can be blurred whenever mouse hovers here.
-             Note: Hovering on the div with the buttons will NOT cause the images to be blurred
+             Adding the .imageGalleryUI div here as a wrapper so that the images can be blurred whenever mouse hovers here.
+             NOTE: Additional CSS was added to make sure that when hovering on the div with the round buttons under the images, images will NOT be blurred (see news.css)
 
              Source of the images and contents on this page:
-             http://www.discoverhongkong.com/eng/index.jsp
+             //www.discoverhongkong.com/eng/index.jsp
        -->
         <div class="imageGalleryUI">
           <div class="eventsOnMonth">
-            <a class="img1" href="http://gohongkong.about.com/od/eventsinhongkong/tp/newyearinhongkong.htm">
-              <img src="http://www.discoverhongkong.com/eng/images/home/highlights/NYCD_610x356_en.jpg" alt="Hong Kong New Year Countdown Celebrations">
+            <a class="img1" href="//gohongkong.about.com/od/eventsinhongkong/tp/newyearinhongkong.htm">
+              <img src="//www.discoverhongkong.com/eng/images/home/highlights/NYCD_610x356_en.jpg" alt="Hong Kong New Year Countdown Celebrations">
             </a>
-            <div id="captionDiv">
+            <div id="captionDiv" class="roundBorder-3px">
               <p>Not to be confused with Chinese New Year in Hong Kong, which is the biggest celebration of the year, New Year in Hong Kong, meaning December 31st, is also the source of big parties and even bigger hangovers. Below, you’ll find our top recommendations, from Hong Kong’s own Times Square to club parties, to enjoy the countdown.</p>
             </div>
 
-            <a class="hide" href="http://www.discoverhongkong.com/eng/see-do/highlight-attractions/harbour-view/hk-pulse.jsp">
-              <img src="http://www.discoverhongkong.com/eng/images/home/highlights/hkpulse_610x356_en.jpg" alt="Hong Kong Pulse 3D Light Show">
+            <a class="hide" href="//www.discoverhongkong.com/eng/see-do/highlight-attractions/harbour-view/hk-pulse.jsp">
+              <img src="//www.discoverhongkong.com/eng/images/home/highlights/hkpulse_610x356_en.jpg" alt="Hong Kong Pulse 3D Light Show">
             </a>
 
-            <a class="hide" href="http://www.discoverhongkong.com/eng/see-do/events-festivals/events-calendar/details.jsp?id=72082">
-              <img src="http://www.discoverhongkong.com/eng/images/home/highlights/HKIR_610x356_en.jpg" alt="Hong Kong International Races (Horseracing)">
+            <a class="hide" href="//www.discoverhongkong.com/eng/see-do/events-festivals/events-calendar/details.jsp?id=72082">
+              <img src="//www.discoverhongkong.com/eng/images/home/highlights/HKIR_610x356_en.jpg" alt="Hong Kong International Races (Horseracing)">
             </a>
 
           </div>
         </div>
 
-        <!--<div class="bottomButtonDiv imageGalleryUI">-->
-          <!--<input type="button" class="imgBtn selectedBtn">-->
-          <!--<input type="button" class="imgBtn">-->
-          <!--<input type="button" class="imgBtn">-->
-        <!--</div>-->
-
         <!--
           Implement the image switching UI using "nav-dots". One label for one image
           Reference:
-          http://codepen.io/AMKohn/pen/EKJHf?editors=110
+          //codepen.io/AMKohn/pen/EKJHf?editors=110
         -->
         <div class="nav-dots imageGalleryUI">
           <label class="imgBtn"></label>
@@ -456,81 +134,14 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </main>
 <footer>
   <p>&copy; 2015, Tif Hang Kwai Pun</p>
 </footer>
-<script src="js/jquery-2.1.4.min.js"></script>
-<script src="js/jquery-ui-1.11.4.min.js"></script>
+<script src="js/libs/jquery-2.1.4.min.js"></script>
 <script src="js/script.js"></script>
-<script type="text/javascript">
-  $(document).ready(function(){
+<script src="js/news.js"></script>
 
-    $("#eventsDiv ul li").click(function(){
-      // Function for the menu at the top:
-      // Apply the "current" class to the clicked menu item
-      $("#eventsDiv ul li").removeClass("current");
-      $(this).addClass("current");
-    });
-
-    $(".imgBtn").click(function(){
-      // Function for the image switching buttons:
-      // Show the corresponding image when a button is clicked
-      var btn = $(this);
-      var btnNode = btn[0];
-      var toShowIndex = 0;
-      var toHideIndex = 0;
-      var anchors = $(".eventsOnMonth a");
-
-      // When a button is clicked, set its background color the same as when it's in hover state to make it look selected
-      // Note: Not using the ":active" selector in CSS since we want to keep the "button" selected until another one is clicked
-      $(".imgBtn").css("background-color", "#FFFFFF");
-      btn.css("background-color", "#FFBF00");
-
-      // Find the index of the button using previousElementSibling instead of harding the id
-      while(btnNode = btnNode.previousElementSibling)
-        toShowIndex++;
-
-      // Find the index of the currently visible anchor element
-      while(toHideIndex < anchors.length){
-        if(!anchors[toHideIndex].classList.contains("hide"))
-          break;
-        else
-          toHideIndex++;
-      }
-
-      // If the button corresponding to the currently visible anchoris clicked,
-      // then do nothing
-      if(toHideIndex === toShowIndex)
-        return;
-
-      // First hide all anchors, then show the one selected
-      anchors.addClass("hide");
-      anchors[toShowIndex].classList.remove("hide");
-    });
-
-    $("#eventsDiv ul li").click(function(){
-      // For the months that don't have contents yet, replace the image gallery by a text
-      // Otherwise, show the image gallery
-
-      var images = $(".imageGalleryUI:visible");
-      if($(this).hasClass("notAvailableMonth")){
-        if(images.length !== 0) {
-          images.hide();
-          $("#notAvailableTextDiv").show();
-        }
-      }
-      else{
-        $("#notAvailableTextDiv").hide();
-        $(".imageGalleryUI").show();
-      }
-
-
-
-    });
-
-  });
-</script>
 </body>
 </html>

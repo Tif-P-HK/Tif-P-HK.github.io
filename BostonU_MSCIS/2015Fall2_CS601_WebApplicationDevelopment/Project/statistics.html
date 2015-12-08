@@ -3,119 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>CS601 / Tif Pun</title>
-  <link rel="stylesheet" href="http://js.arcgis.com/3.14/esri/css/esri.css">
-  <!--<link rel="stylesheet" href="https://rawgit.com/masayuki0812/c3/master/c3.css">-->
+  <link rel="icon" type="image/png" href="img/icon.png" sizes="32x32" />
+  <link rel="stylesheet" href="//js.arcgis.com/3.14/esri/css/esri.css">
   <link rel="stylesheet" href="css/c3.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    aside{
-      border: none;
-    }
-
-    #mapDiv{
-      height: 15%;
-      margin: 10px 0;
-    }
-
-    #hongKongMap{
-      height: 250px;
-      border-radius: 2px;
-    }
-
-    #hongKongLogo{
-      margin: 10px 13px 10px 0;
-      border-radius: 100%;
-      float: left;
-      -webkit-shape-outside:circle();
-      shape-outside:circle();
-    }
-
-    .box{
-      width: 48%;
-      height: 180px;
-      margin: 5px 0 15px 20px;
-      border-bottom: 1px dashed #FFFFFF;
-    }
-
-    .chart{
-      width: 40%;
-      font-size: 0.85em;
-    }
-
-    .smallDiv{
-      height: 150px;
-    }
-
-    #weatherChart svg{
-      overflow: visible;
-    }
-
-    .c3-legend-item{
-      opacity: 0;
-    }
-
-    #unitToggleDiv{
-      height: 25px;
-      margin: 0;
-      padding: 0 30px 0 0;
-    }
-
-    .chartDescription{
-      width: 60%;
-    }
-
-    .c3-chart-arc text,
-    .c3-chart-arcs .c3-chart-arcs-gauge-max,
-    .c3-chart-arcs .c3-chart-arcs-gauge-min,
-    .c3-chart-arc .c3-gauge-value
-    {
-      fill: #FFFFFF;
-      text-shadow:
-        -1px -1px 0 #000000,
-        1px -1px 0 #000000,
-        -1px 1px 0 #000000,
-        1px 1px 0 #000000;
-    }
-
-    .c3 path, .c3 line, .c3 text{
-      font-size: 1.1em;
-    }
-
-    .c3 text, #homeSizeGraphic text{
-      fill: #FFFFFF;
-      text-shadow:
-        -1px -1px 0 #000000,
-        1px -1px 0 #000000,
-        -1px 1px 0 #000000,
-        1px 1px 0 #000000;
-    }
-
-    .c3-tooltip td {
-      background-color: dimgray;
-    }
-
-    .c3-circle {
-      stroke-width: 1px;
-      stroke: white;
-    }
-
-    #homeSizeGraphic line,#homeSizeGraphic rect{
-      stroke: #FFFFFF;
-    }
-
-    #homeSizeGraphic rect:nth-last-of-type(1){
-      fill:#1f77b4;
-    }
-
-    #homeSizeGraphic > rect:nth-last-of-type(2){
-      fill:#064877;
-    }
-
-  </style>
+  <link rel="stylesheet" href="css/statistics.css">
 </head>
 <body>
 <header id="header">
-  <h1 id="siteTitle"><span class="capitalize">hello, hong kong</span></h1>
+  <h1 class="siteTitle capitalize"><a href="index.html">hello, hong kong</a></h1>
   <nav>
     <ul id="mainMenu">
       <li class="expandableItem currentPage"><a href="#">About HK</a>
@@ -134,16 +30,23 @@
 <main>
   <p class="breadcrumb"></p>
 
-  <section>
-    <div id="mapDiv"><div id="hongKongMap"></div></div>
+  <!--
+  Content on this page was mainly adopted from
+  https://en.wikipedia.org/wiki/Hong_Kong, and
+  http://www.statistics.gov.hk/pub/B10100062015AN15E0100.pdf
+  -->
+
+  <!-- Div for the map at the top -->
+  <div>
+    <div id="mapDiv"><div id="hongKongMap" class="roundBorder-3px"></div></div>
 
     <!--Photo adopted from http://www.protocol.gov.hk/flags/chi/r_flag/download.html-->
     <img id="hongKongLogo" src="img/flag01small.jpg" alt="Flag of Hong Kong" title="Flag of Hong Kong"/>
 
-    <!--Content adopted from https://en.wikipedia.org/wiki/Hong_Kong-->
-    <strong><a href="https://en.wikipedia.org/wiki/Hong_Kong" target="_blank">Hong Kong</a></strong> (香港; "Fragrant Harbour"), officially Hong Kong Special Administrative Region of the People's Republic of China, is an autonomous territory on the southern coast of China at the Pearl River Estuary and the South China Sea. Hong Kong is known for its skyline and deep natural harbour. It has an area of 1104 km<sup>2</sup> and shares its northern border with the Guangdong Province of Mainland China. With around 7.2 million Hongkongers of various nationalities, Hong Kong is one of the world's most densely populated metropolises.
-  </section>
+    <strong><a href="//en.wikipedia.org/wiki/Hong_Kong" target="_blank">Hong Kong</a></strong> (香港; "Fragrant Harbour"), officially Hong Kong Special Administrative Region of the People's Republic of China, is an autonomous territory on the southern coast of China at the Pearl River Estuary and the South China Sea. Hong Kong is known for its skyline and deep natural harbour. It has an area of 1104 km<sup>2</sup> and shares its northern border with the Guangdong Province of Mainland China. With around 7.2 million Hongkongers of various nationalities, Hong Kong is one of the world's most densely populated metropolises.
+  </div>
 
+  <!-- Section for details. Using section since this part is quite self contained-->
   <section class="justify">
     <h1 class="sectionTitle glow-blue noFloat">demographics</h1>
     <div class="box left">
@@ -163,7 +66,7 @@
     <div class="box left">
       <div id="ethnicGroupChart" class="chart right"></div>
       <div class="chartDescription left">
-        <p><span class="paragraphTitle">ethnicity: </span>The Hong Kong population comprises of <a href="http://www.had.gov.hk/rru/english/info/info_dem.html">93.6% ethnic Chinese</a>, while the rest of the population consists of mainly Indonesian, Filipino, white and Indian.</p>
+        <p><span class="paragraphTitle">ethnicity: </span>The Hong Kong population comprises of <a href="//www.had.gov.hk/rru/english/info/info_dem.html">93.6% ethnic Chinese</a>, while the rest of the population consists of mainly Indonesian, Filipino, white and Indian.</p>
         <p>Chinese (Cantonese as the spoken standard, Traditional Chinese as the written standard) and English are the official languages in Hong Kong. Most Hongkongers can also speak Mandarin Chinese.</p>
       </div>
     </div>
@@ -171,7 +74,7 @@
     <div class="box right">
       <div id="businessesChart" class="chart right"></div>
       <div class="chartDescription left">
-        <p><span class="paragraphTitle">industries: </span>Hong Kong has approximately <a href="http://www.censtatd.gov.hk/hkstat/sub/so30.jsp">61.2%, or 3,922,000 population of labor force</a> as of October 2015. The top four industry sectors include:</p>
+        <p><span class="paragraphTitle">industries: </span>Hong Kong has approximately <a href="//www.censtatd.gov.hk/hkstat/sub/so30.jsp">61.2%, or 3,922,000 population of labor force</a> as of October 2015. The top four industry sectors include:</p>
         <ul class="smallfont">
           <li>Import/export, wholesale and retail trades (20.8%)</li>
           <li>Social and personal services (12.6%)</li>
@@ -185,7 +88,7 @@
       <div id="crimeChart" class="chart right"></div>
       <div class="chartDescription left">
         <p><span class="paragraphTitle">crime rate: </span>
-          According to <a href="https://safecities.economist.com/wp-content/uploads/2015/01/EIU_Safe_Cities_Index_2015_white_paper-1.pdf">a report published by the Economist Intelligent Unit</a> in 2015,
+          According to <a href="//safecities.economist.com/wp-content/uploads/2015/01/EIU_Safe_Cities_Index_2015_white_paper-1.pdf">a report published by the Economist Intelligent Unit</a> in 2015,
           Hong Kong is ranked the 11<sup>th</sup> safest city in the world, the 6<sup>th</sup> sfest city in the Asia-Pacific region.
       </div>
     </div>
@@ -199,7 +102,7 @@
         <p><span class="paragraphTitle">land area: </span>Hong Kong is situated at the south-eastern tip of the mainland of China, with a
           total area of about 1 105.6 square kilometres covering Hong Kong Island,
           Kowloon, and the New Territories and Islands. Less than 25% of the land are built-up areas. With over 7 million of population,
-          the population density of some part of the city can be as high as <a href="https://lsecities.net/media/objects/articles/high-density-living-in-hong-kong/en-gb/">400,000 people per sq. km.</a></p>
+          the population density of some part of the city can be as high as <a href="//lsecities.net/media/objects/articles/high-density-living-in-hong-kong/en-gb/">400,000 people per sq. km.</a></p>
       </div>
     </div>
 
@@ -236,7 +139,7 @@
       </div>
       <div class="chartDescription left">
         <p>
-          <span class="paragraphTitle">home size: </span>The <a href="http://shrinkthatfootprint.com/how-big-is-a-house">average home size in Hong Kong</a>
+          <span class="paragraphTitle">home size: </span>The <a href="//shrinkthatfootprint.com/how-big-is-a-house">average home size in Hong Kong</a>
           is 45 m<sup>2</sup> (484 ft<sup>2</sup>) i.e. about 22.4% of the average home size in the U.S. (201 m<sup>2</sup>, or 2,164 ft<sup>2</sup>).
         </p>
       </div>
@@ -246,284 +149,11 @@
 <footer>
   <p>&copy; 2015, Tif Hang Kwai Pun</p>
 </footer>
-<!--<script src="js/c3.min.js" charset="utf-8"></script>-->
-<script src="js/d3.min.js" charset="utf-8"></script>
-<script src="https://rawgit.com/masayuki0812/c3/master/c3.js" charset="utf-8"></script>
-<!--<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>-->
-<script src="http://js.arcgis.com/3.14/"></script>
-<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/libs/d3.min.js" charset="utf-8"></script>
+<script src="js/libs/c3.js" charset="utf-8"></script>
+<script src="js/libs/jquery-2.1.4.min.js" charset="utf-8"></script>
+<script src="//js.arcgis.com/3.14/"></script>
 <script src="js/script.js"></script>
-<script type="text/javascript">
-  require(["esri/map", "dojo/domReady!"], function(Map) {
-    // Load the map into the banner area
-    var map = new Map("hongKongMap", {
-      center: [114.18331146240234, 22.25292289724571],
-      zoom: 13,
-      basemap: "streets"
-    });
-
-    // Variables for the charts used in this page
-    var chartSize = {height: 180, width: 250};
-    var hide = {show: false};
-    var padding = {top: 0,right: 0,bottom: 0,left: 0};
-    var color = {pattern: ["#1f77b4", "#064877", "#085E9A", "#65A4D1", "#3F8ABF"]};
-
-    /***
-     Male to female ratio chart
-     ***/
-    var maleToFemaleChartData = [
-      ["Male", 46],
-      ["Female", 54]
-    ];
-
-    c3.generate({
-      bindto: "#maleToFemaleChart",
-      data: {
-        columns: maleToFemaleChartData,
-        type : "donut"
-      },
-      donut: {
-        label: {
-          format: function(value, d, r){
-            return r + " (" + d3.format(",")(value) + "%)";
-          }
-        }
-      },
-      color: color,
-      size: chartSize,
-      legend: hide,
-      tooltip: hide,
-      padding: padding
-    });
-
-    /***
-     Age group chart
-     ***/
-    var ageGroupData = [
-      ["<15", 804],
-      ["15-34", 1932],
-      ["35-64", 3439],
-      [">=65", 1066]
-    ];
-
-    c3.generate({
-      bindto: "#ageGroupChart",
-      data: {
-        columns: ageGroupData,
-        type : "bar",
-        labels: {
-          format: function(value, d){
-            return d + " (" + d3.format(",")(value) + ",000)";
-          }
-        }
-      },
-      axis: {
-        x: {
-          type : 'categorized',
-          tick: {
-            format: function () {return "";}
-          }
-        },
-        y: {
-          label: {
-            text: "Population (x 1000)",
-            position: "outer-middle"
-          }
-        }
-      },
-      color: color,
-      size: chartSize,
-      legend: hide,
-      tooltip: hide
-    });
-
-    /***
-     Ethnic group chart
-     ***/
-    var ethnicGroupData = [
-      ["Indonesian", 30],
-      ["Filipino", 29],
-      ["White", 12],
-      ["Indian", 6],
-      ["Others", 6]
-    ];
-
-    c3.generate({
-      bindto: "#ethnicGroupChart",
-      data: {
-        columns: ethnicGroupData,
-        type : "pie"
-      },
-      pie: {
-        label: {
-          format: function(value, d, r){
-            return r + " (" + d3.format(",")(value) + ",000)";
-          }
-        }
-      },
-      color: color,
-      size: chartSize,
-      legend: hide,
-      tooltip: hide,
-      padding: padding
-    });
-
-    /***
-     Businesses chart
-     ***/
-    var businessesChartData = [
-      ["Financing", 5.6],
-      ["Social services", 12.6],
-      ["Trade", 20.8],
-      ["Transportation", 4.5]
-    ];
-
-    c3.generate({
-      bindto: "#businessesChart",
-      data: {
-        columns: businessesChartData,
-        type : "bar",
-        labels: {
-          format: function(value, d){
-            return d + " (" + d3.format(",")(value) + ")";
-          }
-        }
-      },
-      axis: {
-        x: {
-          type : 'categorized',
-          tick: {
-            format: function () {return "";}
-          }
-        },
-        y: {
-          label: {
-            text: "Employment by sectors (%)",
-            position: "outer-middle"
-          }
-        }
-      },
-      color: color,
-      size: chartSize,
-      legend: hide,
-      tooltip: hide
-    });
-
-    /***
-     Crime rate chart
-     ***/
-    var crimeChartData = [["H.K. Safe Cities Index (2015)", 77.24]];
-    c3.generate({
-      bindto: "#crimeChart",
-      data: {
-        columns: crimeChartData,
-        type: "gauge"
-      },
-      gauge: {
-        label: {
-            format: function(value, ratio) {
-                return value;
-            },
-      units: ''
-      },
-      color: color,
-      size: chartSize
-    }});
-
-    /***
-     Land area chart
-     ***/
-    var landAreaChartData = [
-      ["Kowloon", 47],
-      ["New Territories", 978],
-      ["H.K. Island", 81]
-    ];
-
-    c3.generate({
-      bindto: "#landAreaChart",
-      data: {
-        columns: landAreaChartData,
-        type : "bar",
-        labels: {
-          format: function(value, d){
-            return d + " (" + d3.format(",")(value) + ")";
-          }
-        }
-      },
-      axis: {
-        x: {
-          type : 'categorized',
-          tick: {
-            format: function () {return "";}
-          }
-        },
-        y: {
-          label: {
-            text: "Land area (sq. km)",
-            position: "outer-middle"
-          }
-        }
-      },
-      color: color,
-      size: chartSize,
-      legend: hide,
-      tooltip: hide
-    });
-
-    /***
-     Weather chart
-     ***/
-    var weatherChartData =  {
-      columns: [
-        ["Humidity", 74, 80, 82, 83, 83, 82, 81, 81, 78, 73, 71, 69],
-        ["Mean Temp.", 16.3, 16.8, 19.1, 22.6, 25.9, 27.9, 28.8, 28.6, 27.7, 25.5, 21.8, 17.9]
-      ]
-    };
-
-    var weatherChart = c3.generate({
-      bindto: "#weatherChart",
-      data: weatherChartData,
-      axis: {
-        x: {
-          type : "categorized",
-          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-        },
-        y: {
-          label: {
-            text: "Mean Temp. / Humidity",
-            position: "outer-middle"
-          }
-        }
-      },
-      color: { pattern: ["#085E9A", "#65A4D1"] },
-      size: {height: 150, width: 250},
-      legend: {position: "left"}
-    });
-
-    // When a radio button is clicked, update the chart to its appropriate temperature unit
-
-    document.getElementById("celsiusBtn").onclick = function(){
-      // Convert temp. data into Celsius
-
-      for(var i=1; i< weatherChartData.columns[1].length; i++)
-        weatherChartData.columns[1][i] = d3.round((weatherChartData.columns[1][i] - 32) * 5 / 9, 1);
-
-      setTimeout(function () {
-        weatherChart .load(weatherChartData);
-      }, 1000);
-    };
-
-    document.getElementById("fahrenheitBtn").onclick = function(){
-      // Convert temp. data into Fahrenheit
-
-      for(var i=1; i< weatherChartData.columns[1].length; i++)
-        weatherChartData.columns[1][i] = d3.round(weatherChartData.columns[1][i] * 9 / 5 + 32, 1);
-
-      setTimeout(function () {
-        weatherChart .load(weatherChartData);
-      }, 1000);
-    };
-  });
-</script>
+<script src="js/statistics.js"></script>
 </body>
 </html>

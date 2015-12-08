@@ -28,14 +28,21 @@ header{
   width: 1830px;
 }
 
-#siteTitle{
+.siteTitle{
   font-size: 30px;
   margin-top: 30px;
   float: left;
+}
+
+.siteTitle a,
+.siteTitle a:hover{
+  color: #FF6600;
   text-shadow:
     0px -1px 0px #d13728,
     2px 2px 5px #EF9C00;
+  border: none;
 }
+
 
 /******** Styles for the navigation menu ********/
 nav{
@@ -66,7 +73,7 @@ nav{
 /* one tab e.g. About HK */
 #mainMenu li{
   float: left;
-  width: 145px;
+  width: 150px;
   padding: 24px 0;
   text-align: center;
   margin-right: 3px;
@@ -132,7 +139,6 @@ aside{
   width: 10%;
   height: 100%;
   margin-top: 100px;
-  border: 1px solid yellow;
 }
 
 
@@ -146,7 +152,7 @@ aside{
   text-transform: capitalize;
 }
 
-.accordian {
+.accordion {
   height: 100%;
   font-family:arial, sans-serif;
   font-size: 12px;
@@ -157,7 +163,7 @@ aside{
   list-style-type:none;
 }
 
-.accordian .menuHeader {
+.accordion .menuHeader {
   font-size: 1.3em;
   line-height: 1.5em;
   cursor: pointer;
@@ -170,18 +176,18 @@ aside{
   background: linear-gradient(top, #575e63, #3f4347);
 }
 
-.accordian .menuHeader:hover {
+.accordion .menuHeader:hover {
   color: #FFBF00;
 }
 
-.accordian ul {
+.accordion ul {
   background: #989B9D;
   padding: 0;
   list-style: none;
   border-radius: 5px;
 }
 
-.accordian ul li{
+.accordion ul li{
   display: block;
   margin: 0;
   padding: 10px 15px;
@@ -199,14 +205,14 @@ aside{
   transition: all 100ms;
 }
 
-.accordian ul li:hover {
+.accordion ul li:hover {
   background: #797E82;
   border-left: 10px solid #FF6600;
   color: #FFBF00;
   cursor: pointer;
 }
 
-.accordian ul li a{
+.accordion ul li a{
   border: none;
 }
 
@@ -216,11 +222,11 @@ aside{
   box-shadow: inset 0 0 10px 1px #5c6064;
 }
 
-.accordian ul {
+.accordion ul {
   display: none;
 }
 
-.accordian li.active ul {
+.accordion li.active ul {
   display: block;
 }
 
@@ -239,7 +245,6 @@ a{
   color: #FFFFFF;
   text-decoration: none;
   border-bottom: 1px dashed #FFFFFF;
-  /*#FFBF00*/
 }
 
 a:hover{
@@ -281,6 +286,10 @@ h1{
   border-bottom: 1px dashed #EF9C00;
   display: inline;
   margin-bottom: 5px;
+}
+
+.roundBorder-3px{
+  border-radius: 3px;
 }
 
 .hide{

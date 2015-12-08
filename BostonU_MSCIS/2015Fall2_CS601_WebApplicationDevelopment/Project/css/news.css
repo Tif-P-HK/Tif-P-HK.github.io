@@ -1,0 +1,317 @@
+/* CSS for news.html */
+
+body{
+  height: 1500px;
+}
+
+#emptyDiv{
+  width: 16%;
+  height: 100%;
+  float: left;
+}
+
+section{
+  width: 100%;
+  height: 100%;
+}
+
+/* News */
+#newsDiv{
+  width: 25%;
+}
+
+#newsDiv h2{
+  margin-bottom: 15px;;
+}
+
+.scrollable{
+  height: 400px;
+  width: 100%;
+  border: solid #3f4347;
+  border-width: 40px 10px 35px 10px;
+  background-image: url("../img/grey_wash_wall.png");
+
+  overflow: hidden;
+  position: relative;
+}
+
+.items{
+  /*Reference:
+  http://jsfiddle.net/spliter/g2PE7/
+  */
+
+  -webkit-animation: scroll 12s infinite;
+  -moz-animation: scroll 12s infinite;
+  -ms-animation: scroll 12s infinite;
+}
+
+.items:hover{
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+.items:not(:hover){
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+}
+
+.items > div{
+  /* keep the total height = 100px */
+  height: 94px;
+  padding: 3px;
+
+  margin: 0 10px;
+  overflow: hidden;
+  border-bottom: 1px dashed #FFFFFF;
+}
+
+.items > div:hover{
+  border-left: 10px solid transparent;
+}
+
+.imgDiv + p:hover{
+  cursor: pointer;
+}
+
+.imgDiv{
+  height: 90px;
+  width: 90px;
+  margin: 10px 5px auto auto;
+  display: block;
+  float: left;
+}
+
+.imgDiv img{
+  height: 80%;
+  width: 100%;
+}
+
+.items div p{
+  margin: 5px;
+  font-size: 0.9em;
+}
+
+
+@-webkit-keyframes scroll {
+  0% {
+    margin-top: 0;
+  }
+  27.33% {
+    margin-top: 0
+  }
+  33.33% {
+    margin-top: -100px;
+  }
+  60.66% {
+    margin-top: -100px;
+  }
+  66.66% {
+    margin-top: -200px;
+  }
+  94.99% {
+    margin-top: -200px;
+  }
+  10% {
+    margin-top: 0
+  }
+}
+
+@-moz-keyframes scroll {
+  0% {
+    margin-top: 0;
+  }
+  27.33% {
+    margin-top: 0
+  }
+  33.33% {
+    margin-top: -100px;
+  }
+  60.66% {
+    margin-top: -100px;
+  }
+  66.66% {
+    margin-top: -200px;
+  }
+  94.99% {
+    margin-top: -200px;
+  }
+  10% {
+    margin-top: 0
+  }
+}
+
+@-ms-keyframes scroll {
+  0% {
+    margin-top: 0;
+  }
+  27.33% {
+    margin-top: 0
+  }
+  33.33% {
+    margin-top: -100px;
+  }
+  60.66% {
+    margin-top: -100px;
+  }
+  66.66% {
+    margin-top: -200px;
+  }
+  94.99% {
+    margin-top: -200px;
+  }
+  10% {
+    margin-top: 0
+  }
+}
+
+/* Upcoming events */
+/******** Styles for the navigation menu ********/
+#eventsDiv{
+  margin: 20px 10px 0 16%;
+  width: 800px;
+  height: 430px;
+}
+
+#eventsDiv ul{
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+#eventsDiv ul li{
+  display: inline;
+  padding: 10px 15px;
+  margin-right: 2px;
+
+  font-family: arial, sans-serif;
+  font-weight: normal;
+  color: #ffffff;
+  border-radius: 5px;
+
+  font-size: 1.3em;
+  line-height: 1.5em;
+
+  background: #3f4347;
+}
+
+#eventsDiv ul li.current{
+  padding-bottom: 19px;
+}
+
+#eventsDiv ul li a{
+  font-weight: bold;
+}
+
+#notAvailableTextDiv{
+  margin-top: 25%;
+  height: 30px;
+  text-align: center;
+  position: relative;
+  font-size: 3em;
+}
+
+#imageGallery{
+  margin: 0;
+  height: 100%;
+
+  /* Image adopted from http://subtlepatterns.com/ under the creative commons license
+   (available at: http://creativecommons.org/licenses/by-sa/3.0/). No modification was
+   made to the image.*/
+  background-image: url("../img/grey_wash_wall.png");
+  background-repeat: repeat;
+
+  border: solid #3f4347;
+  border-width: 20px 10px;
+}
+
+.eventsOnMonth{
+  position: relative;
+}
+
+.eventsOnMonth img{
+  width: 80%;
+  height: 75%;
+  margin: 20px 10% 0 10%;
+}
+
+#imageGallery > div{
+  height: 383px;
+}
+
+/* blur the background image a bit so that the text can be more legible*/
+/* The image will not be blurred when hovering/clicking on the switch image buttons */
+#imageGallery > div:hover a img{
+
+  /* Apply a duration to make the blurring/un-blurring less abrupt */
+  transition: 500ms filter linear;
+  -webkit-transition: 500ms -webkit-filter linear;
+  -moz-transition: 500ms -moz-filter linear;
+  -o-transition: 500ms -o-filter linear;
+
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+
+}
+
+/* Un-blur the image */
+#imageGallery > div:not(:hover) a img{
+  transition: 500ms filter linear;
+  -webkit-transition: 500ms -webkit-filter linear;
+  -moz-transition: 500ms -moz-filter linear;
+  -o-transition: 500ms -o-filter linear;
+
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
+
+}
+
+#captionDiv{
+  /*margin: 33px 12.5% ;*/
+  margin: 15px 14.5%;
+  bottom: 0;
+  /*height: 0;*/
+  width: 69%;
+  height: 35%;
+
+  padding: 10px;
+
+  position: absolute;
+  overflow: hidden;
+
+  /* Using rgba on background-color so that the text on top will be unaffected by the opacity*/
+  background-color: rgba(255, 255, 255, 0.35);
+
+  font-size: 0.9em;
+  color: #000000;
+  text-shadow:
+    -1px -1px 0 #FFFFFF,
+    1px -1px 0 #FFFFFF,
+    -1px 1px 0 #FFFFFF,
+    1px 1px 0 #FFFFFF;
+}
+
+a, a:hover{
+  border: none;
+}
+
+.nav-dots{
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.nav-dots label{
+  border-radius: 100%;
+  display: inline-block;
+  position: relative;
+  background-color: #FFFFFF;
+
+  width: 11px;
+  height: 11px;
+  margin: 0 4px;
+}
+
+.nav-dots label:hover {
+  cursor: pointer;
+  background-color: #FFBF00;
+}
