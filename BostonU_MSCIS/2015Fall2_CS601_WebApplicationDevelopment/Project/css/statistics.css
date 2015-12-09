@@ -1,5 +1,8 @@
 /* CSS for statistics.html */
 
+/*
+* Map at the top
+*/
 #mapDiv{
   height: 15%;
   margin: 10px 0;
@@ -17,11 +20,18 @@
   shape-outside:circle();
 }
 
+/*
+* Charts
+*/
 .box{
   width: 48%;
   height: 180px;
   margin: 5px 0 15px 20px;
   border-bottom: 1px dashed #FFFFFF;
+}
+
+.chartDescription{
+  width: 60%;
 }
 
 .chart{
@@ -45,10 +55,6 @@
   height: 25px;
   margin: 0;
   padding: 0 30px 0 0;
-}
-
-.chartDescription{
-  width: 60%;
 }
 
 .c3-chart-arc text,
@@ -86,6 +92,7 @@
   stroke: white;
 }
 
+/* The home size SVG */
 #homeSizeGraphic line,#homeSizeGraphic rect{
   stroke: #FFFFFF;
 }

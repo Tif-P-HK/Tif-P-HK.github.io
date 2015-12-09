@@ -4,7 +4,7 @@ $(document).ready(function(){
   /*
    * Main functions
    * */
-  var url = "//gist.githubusercontent.com/Tif-P-HK/042748d0335ad04eb0b6/raw/c93fe06fefe067c4305cf7078b16166c7d854b15/tifphk-tips.json";
+  var url = "https://gist.githubusercontent.com/Tif-P-HK/042748d0335ad04eb0b6/raw/c93fe06fefe067c4305cf7078b16166c7d854b15/tifphk-tips.json";
   loadJSON(url, function(response) {
     // When DOM is ready, create a JSON "tips" object based on the JSON file,
     // then populate the page with the info from the object
@@ -16,7 +16,7 @@ $(document).ready(function(){
     // Each "tip" consists of a title, a description text, a source section linking to the sources,
     // and optionally an image which can be expanded
 
-    // the main div containing each "tip" div
+    // The main div containing each "tip" div
     var tipsDiv = $("#tips");
 
     for(var i=0; i<this.tips.length; i++){
@@ -40,13 +40,13 @@ $(document).ready(function(){
             .append(
               $("<img/>")
                 .attr("src", tip.img.src)
-                .attr("href", tip.img.alt)
+                .attr("alt", tip.img.alt)
                 .click(expandImage)
             )
         );
       }
 
-      // the description portion, which consists of a few paragraphs of text and a list of sources
+      // Description, which consists of a few paragraphs of text and a list of sources
       // create the description with the paragraphs
       var description = $("<div/>")
         .addClass("description")
@@ -56,7 +56,7 @@ $(document).ready(function(){
       if(tip.sources && tip.sources.length > 0){
         var sourcesList = $("<ul/>");
         for(var j=0; j<tip.sources.length; j++){
-          $("<ul/>").append()
+          $("<ul/>").append();
           var listItem = $("<li/>")
             .append(
               $("<a/>")
@@ -72,7 +72,6 @@ $(document).ready(function(){
             .append($("<summary/>").text("Sources"))
             .append(sourcesList));
       }
-
 
       // append the entire description portion to the tip div
       tipDiv.append(description);
@@ -90,6 +89,7 @@ $(document).ready(function(){
     // The dark background between the expanded image and the document
     $("<div></div>")
       .attr("id", "overlay")
+      .click(stopLightbox)
       .appendTo("body");
 
     // The container for the image
@@ -112,19 +112,14 @@ $(document).ready(function(){
           })
           .fadeIn();
       })
-      .click(function() {
-        $("#overlay, #lightbox")
-          .fadeOut("slow", function() {
-            $(this).remove();
-          });
-      })
+      .click(stopLightbox)
       .appendTo(lightbox);
 
     return false;
   }
 
   $(window).resize(function(){
-    // if the window is resized, adjust the position of the lightbox to keep it at the center
+    // If the window is resized, adjust the position of the lightbox to keep it at the center
 
     var lightbox = $("#lightbox");
     if(lightbox.is(":visible")){
@@ -143,18 +138,8 @@ $(document).ready(function(){
   /*
    * Functions related to the side menu
    * */
-  $(".menuHeader").click(function () {
-    // Logic for controlling the opening/closing of the side menu items
-
-    $(".accordion ul").slideUp();
-
-    if (!$(this).next().is(":visible")) {
-      $(this).next().slideDown();
-    }
-  });
-
   $(".accordion li ul li").click(function(){
-    // A menu item is clicked, remove the currentItem class from the existing item
+    // When an item on the sde menu is clicked, remove the currentItem class from the existing item
     // and apply it to the clicked item
     $(".currentItem").removeClass("currentItem");
     $(this).addClass("currentItem");
@@ -175,4 +160,12 @@ $(document).ready(function(){
     };
     xobj.send(null);
   }
+
+  function stopLightbox() {
+    // Stop the lightbox effect, close the expanded image and the dark background
+    $("#overlay, #lightbox")
+      .fadeOut("slow", function() {
+        $(this).remove();
+      });
+  };
 });

@@ -26,14 +26,17 @@ body{
 }
 
 #openStatisticsPage{
-  width: 220px;
-  height: 55px;
+  padding: 20px 50px;
   border: 5px solid #FFFFFF;
   background: none;
   color: #FFFFFF;
   font: 1.3em Arial, sans-serif;
   transition: all 1s ease;
   font-weight: bold;
+}
+
+#openStatisticsPage a:hover{
+  color: #FFFFFF;
 }
 
 #openStatisticsPage:hover{

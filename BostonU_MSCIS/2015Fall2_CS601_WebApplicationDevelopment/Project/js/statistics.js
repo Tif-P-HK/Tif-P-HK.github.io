@@ -1,5 +1,6 @@
 /* JS for statistics.html */
 
+// ArcGIS JS API requires loading through AMD
 require(["esri/map", "dojo/domReady!"], function(Map) {
 
   // Load the map into the banner area
@@ -9,13 +10,11 @@ require(["esri/map", "dojo/domReady!"], function(Map) {
     basemap: "streets"
   });
 
-  // Variables for the charts used in this page
+  // Variables for the charts on this page
   var chartSize = {height: 180, width: 250};
   var hide = {show: false};
   var padding = {top: 0,right: 0,bottom: 0,left: 0};
   var color = {pattern: ["#1f77b4", "#064877", "#085E9A", "#65A4D1", "#3F8ABF"]};
-
-  // Create and manipulate charts with the following code
 
   /***
    Male to female ratio chart
@@ -251,7 +250,7 @@ require(["esri/map", "dojo/domReady!"], function(Map) {
 
   // When a radio button is clicked, update the chart to its appropriate temperature unit
   $("#celsiusBtn").click(function(){
-    // Convert temp. data into Celsius
+    // Convert temperatures into Celsius
 
     for(var i=1; i< weatherChartData.columns[1].length; i++)
       weatherChartData.columns[1][i] = d3.round((weatherChartData.columns[1][i] - 32) * 5 / 9, 1);
@@ -262,7 +261,7 @@ require(["esri/map", "dojo/domReady!"], function(Map) {
   });
 
   $("#fahrenheitBtn").click(function(){
-    // Convert temp. data into Fahrenheit
+    // Convert temperatures into Fahrenheit
 
     for(var i=1; i< weatherChartData.columns[1].length; i++)
       weatherChartData.columns[1][i] = d3.round(weatherChartData.columns[1][i] * 9 / 5 + 32, 1);

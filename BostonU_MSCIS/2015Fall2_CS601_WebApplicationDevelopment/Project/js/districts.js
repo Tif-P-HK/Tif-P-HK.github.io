@@ -1,5 +1,6 @@
 /* JS for districts.html */
 
+// ArcGIS JS API requires loading through AMD
 require(["esri/map", "esri/geometry/Point", "dojo/domReady!"
 ], function(Map, Point) {
   // When DOM is ready, create the map component,
@@ -12,7 +13,8 @@ require(["esri/map", "esri/geometry/Point", "dojo/domReady!"
   /*
    * Main functions
    * */
-  var url = "//gist.githubusercontent.com/Tif-P-HK/3ea37ae6b5e623db35e2/raw/69b2a6456180d75c2f031829441bf6f550c2cf56/tifphk-districts.json";
+  // Using https here. Interestingly IE will fail to load the JSON if going protocol-less
+  var url = "https://gist.githubusercontent.com/Tif-P-HK/3ea37ae6b5e623db35e2/raw/69b2a6456180d75c2f031829441bf6f550c2cf56/tifphk-districts.json";
   loadJSON(url, function(response) {
     // When DOM is ready, create a JSON "district" object based on the url to the JSON file,
     // then populate the page using the default "hongkong" object
@@ -21,7 +23,9 @@ require(["esri/map", "esri/geometry/Point", "dojo/domReady!"
   });
 
   function populatePage(districtId){
-    // Find the district to show based on the given id
+    // Populate the page using the JSON object
+
+    // First, find the district to show based on the given id
     var districts = $.grep(this.districts, function(item){
       return item.id === districtId;
     });
@@ -54,7 +58,7 @@ require(["esri/map", "esri/geometry/Point", "dojo/domReady!"
   }
 
   function createImages(){
-    // Create the images for the image gallery, then start the slideshow
+    // Create the images for the image gallery, then kick off the slideshow
 
     var imagesDiv = $("#imageGallery");
     var imageContainer;
@@ -62,6 +66,7 @@ require(["esri/map", "esri/geometry/Point", "dojo/domReady!"
 
     imagesDiv.children().remove();  //First, remove all exiting images from the image gallery
     photos = this.district.photos;
+    // Then add the images
     for(var i=0; i<photos.length; i++){
       imageContainer = $("<div/>").addClass("imageContainer");
       if(i==0)
@@ -95,11 +100,13 @@ require(["esri/map", "esri/geometry/Point", "dojo/domReady!"
   function createDescription(){
     // Create the elements for the district title, description and icons to external sites
 
-    // Icons to external sites. Don't display if the URL info is missing
+    // Icons to external sites. Hide if the URL info is missing
     var tripAdvisorUrl = this.district.description.tripAdvisorUrl;
     var tripAdvisorUrlUI = $("#tripAdvisorUrl");
     if(tripAdvisorUrl !== ""){
-      tripAdvisorUrlUI.attr("href", tripAdvisorUrl);
+      tripAdvisorUrlUI
+        .attr("href", tripAdvisorUrl)
+        .attr("target", "_blank");
       tripAdvisorUrlUI.removeClass("hide");
     }
     else
@@ -108,7 +115,9 @@ require(["esri/map", "esri/geometry/Point", "dojo/domReady!"
     var openRiceUrl = this.district.description.openRiceUrl;
     var openRiceUrlUI = $("#openRiceUrl");
     if(openRiceUrl !== ""){
-      openRiceUrlUI.attr("href", openRiceUrl);
+      openRiceUrlUI
+        .attr("href", openRiceUrl)
+        .attr("target", "_blank");
       openRiceUrlUI.removeClass("hide");
     }
     else
@@ -119,27 +128,14 @@ require(["esri/map", "esri/geometry/Point", "dojo/domReady!"
     $("#districtTitleText").text(title);
 
     // District description
-    $("#districtDescription").children().remove();
-    $("#districtDescription").addClass("justify");
-    $("#districtDescription").append(district.description.details);
-
+    var districtDescription = $("#districtDescription");
+    districtDescription.children().remove();
+    districtDescription.addClass("justify");
+    districtDescription.append(district.description.details);
   }
 
-  /*
-   * Functions related to the side menu
-   * */
-  $(".menuHeader").click(function () {
-    // Logic for controlling the opening/closing of the side menu items
-
-    $(".accordion ul").slideUp();
-
-    if (!$(this).next().is(":visible")) {
-      $(this).next().slideDown();
-    }
-  });
-
   $("#districtMenu li ul li").click(function(){
-    // A menu item is clicked, remove the currentItem class from the existing item
+    // When an item on the sde menu is clicked, remove the currentItem class from the existing item
     // and apply it to the clicked item
     $(".currentItem").removeClass("currentItem");
     $(this).addClass("currentItem");
@@ -166,7 +162,8 @@ require(["esri/map", "esri/geometry/Point", "dojo/domReady!"
 
   function slideImages(){
     // Set a timer to slide images that belong to the same districts
-    // Reference: http://jsfiddle.net/xYWzU/9/
+    // Reference:
+    // http://jsfiddle.net/xYWzU/9/
 
     this.interval = setInterval(function(){
       // For every 6 seconds, slide out current image, then slide in the next image

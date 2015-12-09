@@ -1,6 +1,4 @@
-/* JS for news.html *//**
- * Created by Tif on 12/8/2015.
- */
+/* JS for news.html  */
 
 $(document).ready(function(){
 
@@ -21,7 +19,7 @@ $(document).ready(function(){
     var anchors = $(".eventsOnMonth a");
 
     // When a button is clicked, set its background color the same as when it's in hover state to make it look selected
-    // Note: Not using the ":active" selector in CSS since we want to keep the "button" selected until another one is clicked
+    // Note: Not using the ":active" selector in CSS so that the "button" will stay selected until another one is clicked
     $(".imgBtn").css("background-color", "#FFFFFF");
     btn.css("background-color", "#FFBF00");
 
@@ -37,7 +35,7 @@ $(document).ready(function(){
         toHideIndex++;
     }
 
-    // If the button corresponding to the currently visible anchoris clicked,
+    // If the button corresponding to the currently visible anchor is clicked,
     // then do nothing
     if(toHideIndex === toShowIndex)
       return;

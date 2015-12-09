@@ -5,16 +5,9 @@ section{
   height: 100%;
 }
 
-#tips{
-  width: 63%;
-  margin-left: 17%;
-}
-
-.tip{
-  text-align: justify;
-  min-height: 180px;
-}
-
+/*
+* Images and the lightbox effect
+*/
 .imgDiv{
   width: 150px;
   height: 150px;
@@ -65,6 +58,20 @@ section{
   max-width: 2400px;
   max-height: 1000px;
 }
+
+/*
+* Tips
+*/
+#tips{
+  width: 63%;
+  margin-left: 17%;
+}
+
+.tip{
+  text-align: justify;
+  min-height: 180px;
+}
+
 
 .description p:last-of-type{
   margin-bottom: 5px;

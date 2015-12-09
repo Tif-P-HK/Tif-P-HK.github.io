@@ -9,7 +9,10 @@ section{
   height: 100%;
 }
 
-/* Image gallery and images*/
+
+/*
+* Image gallery and images
+*/
 #imageGallery{
   width: 65%;
   height: 100%;
@@ -47,7 +50,9 @@ section{
     1px 1px 0 #000000;
 }
 
-/* Map */
+/*
+* Map
+*/
 #mapDiv{
   height: 100%;
   width: 20%;
@@ -57,8 +62,9 @@ section{
   height: 430px;
 }
 
-/* Details about a district */
-
+/*
+* Details about a district
+*/
 #districtDescription{
   margin-left: 12%;
 }

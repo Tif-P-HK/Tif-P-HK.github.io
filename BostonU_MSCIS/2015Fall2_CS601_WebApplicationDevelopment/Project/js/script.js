@@ -82,8 +82,8 @@ $(document).ready(function(){
   });
   $(".breadcrumb").html(breadCrumbText.substring(0, breadCrumbText.length - 2));
 
+  // Function for side menu:
   $(window).scroll(function(){
-    // Function for side menu:
     // Making the side menu on statistics and districts pages float as the document is scrolled
     $("#sideMenuDiv")
       .stop()
@@ -91,6 +91,16 @@ $(document).ready(function(){
         {top: $(document).scrollTop()},
         "slow"
       );
+  });
+
+  $(".menuHeader").click(function () {
+    // Logic for controlling the opening/closing of the side menu items
+
+    $(".accordion ul").slideUp();
+
+    if (!$(this).next().is(":visible")) {
+      $(this).next().slideDown();
+    }
   });
 });
 	

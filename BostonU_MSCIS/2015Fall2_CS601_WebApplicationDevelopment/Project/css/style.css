@@ -1,6 +1,6 @@
-/***
-	 Defining styles from generic to specific; First start with elements
-	 ***/
+/*
+* Styles shared across the site
+*/
 
 body {
   /* Image adopted from http://subtlepatterns.com/ under the creative commons license
@@ -11,12 +11,14 @@ body {
   font: normal 90% sans-serif;
   color: #FFFFFF;
   width: 1830px;
-  /*height: 1500px;*/
   height: 100%;
   margin: auto;
   line-height: 1.5em;
 }
 
+/*
+* Header
+*/
 header{
   background-image: url("../img/dark_embroidery.png");
   background-repeat: repeat;
@@ -43,8 +45,7 @@ header{
   border: none;
 }
 
-
-/******** Styles for the navigation menu ********/
+/* Header > navigation menu  */
 nav{
   float: right;
 }
@@ -70,7 +71,6 @@ nav{
   clear: both;
 }
 
-/* one tab e.g. About HK */
 #mainMenu li{
   float: left;
   width: 150px;
@@ -88,7 +88,6 @@ nav{
   border-right: 0;
 }
 
-/* one group of submenu items */
 #mainMenu > li ul{
   list-style: none;
   display: none;
@@ -121,28 +120,43 @@ nav a:hover, .navigation, .navigation:hover{
   border: none;
 }
 
-/******** Styles for main ********/
+/*
+* Main
+*/
 main{
-  /*width: 1410px;*/
   width: 77%;
   float: left;
   height: 100%;
   margin: 90px 5px 0 5px;
   padding: 0 2px 0 2px;
-  /*margin: 100px 5px 0 5px;*/
 }
 
 aside{
   /* Specify the same width for both sidebars so that the main section will
   stay at the center*/
-  /*width: 200px;*/
   width: 10%;
   height: 100%;
   margin-top: 100px;
 }
 
+.leftSidebar{
+  float: left;
+}
 
-/* Side menu */
+.rightSidebar{
+  float: right;
+}
+
+/* Main > Breadcrumb */
+.breadcrumb{
+  font: 0.9em Arial;
+  color: #EF9C00;
+  border-bottom: 1px dashed #EF9C00;
+  display: inline;
+  margin-bottom: 5px;
+}
+
+/* Main > side menu */
 #sideMenuDiv{
   width: 16%;
   margin: 40px 0 0 0;
@@ -173,7 +187,7 @@ aside{
   background: -webkit-linear-gradient(top, #3f4347, #575e63);
   background: -moz-linear-gradient(top, #575e63, #3f4347);
   background: -o-linear-gradient(top, #575e63, #3f4347);
-  background: linear-gradient(top, #575e63, #3f4347);
+  background: -ms-linear-gradient(top, #575e63, #3f4347);
 }
 
 .accordion .menuHeader:hover {
@@ -230,10 +244,12 @@ aside{
   display: block;
 }
 
+/*
+* Footer
+*/
 footer{
-  /* Clear the floating of the sidebars*/
   clear: both;
-  margin-top: 100%;
+  /*margin-top: 100%;*/
 }
 
 footer p {
@@ -241,6 +257,9 @@ footer p {
   text-align: center;
 }
 
+/*
+* Styles for elements
+*/
 a{
   color: #FFFFFF;
   text-decoration: none;
@@ -253,20 +272,8 @@ a:hover{
   border-bottom: 1px dashed #FFBF00;
 }
 
-strong{
-  font-size: 1.5em;
-}
-
-.leftSidebar{
-  float: left;
-}
-
-.rightSidebar{
-  float: right;
-}
-
-.capitalize{
-  text-transform: uppercase;
+a, a:hover, a:active{
+  outline: 0;
 }
 
 h1{
@@ -274,17 +281,19 @@ h1{
   font-family: "Segoe UI",Arial,sans-serif;
 }
 
-.sectionTitle{
-  text-transform: capitalize;
-  margin-bottom: 5px;
+/*
+* General styles
+*/
+strong{
+  font-size: 1.5em;
 }
 
-/*Styles for breadcrumb*/
-.breadcrumb{
-  font: 0.9em Arial;
-  color: #EF9C00;
-  border-bottom: 1px dashed #EF9C00;
-  display: inline;
+.capitalize{
+  text-transform: uppercase;
+}
+
+.sectionTitle{
+  text-transform: capitalize;
   margin-bottom: 5px;
 }
 
@@ -314,10 +323,6 @@ h1{
 
 .justify{
   text-align: justify;
-}
-
-.chartLabel{
-  color: #FFFFFF;
 }
 
 .smallfont{

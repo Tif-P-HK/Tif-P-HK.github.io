@@ -1,7 +1,8 @@
 /* CSS for news.html */
 
-body{
-  height: 1500px;
+section{
+  width: 100%;
+  height: 100%;
 }
 
 #emptyDiv{
@@ -10,12 +11,9 @@ body{
   float: left;
 }
 
-section{
-  width: 100%;
-  height: 100%;
-}
-
-/* News */
+/*
+* News
+*/
 #newsDiv{
   width: 25%;
 }
@@ -29,6 +27,10 @@ section{
   width: 100%;
   border: solid #3f4347;
   border-width: 40px 10px 35px 10px;
+
+  /* Image adopted from http://subtlepatterns.com/ under the creative commons license
+   (available at: http://creativecommons.org/licenses/by-sa/3.0/). No modification was
+   made to the image.*/
   background-image: url("../img/grey_wash_wall.png");
 
   overflow: hidden;
@@ -36,7 +38,8 @@ section{
 }
 
 .items{
-  /*Reference:
+  /* Style for the vertical slideshow effect.
+  Reference:
   http://jsfiddle.net/spliter/g2PE7/
   */
 
@@ -56,7 +59,9 @@ section{
 }
 
 .items > div{
-  /* keep the total height = 100px */
+  /* Keep each div's height = 94 + 3 + 3 = 100px so that
+   * The total height = 100 * 4 = 400 (height of .scrollable)
+  */
   height: 94px;
   padding: 3px;
 
@@ -90,7 +95,6 @@ section{
   margin: 5px;
   font-size: 0.9em;
 }
-
 
 @-webkit-keyframes scroll {
   0% {
@@ -164,8 +168,9 @@ section{
   }
 }
 
-/* Upcoming events */
-/******** Styles for the navigation menu ********/
+/*
+* Upcoming events
+*/
 #eventsDiv{
   margin: 20px 10px 0 16%;
   width: 800px;
@@ -236,11 +241,13 @@ section{
 
 #imageGallery > div{
   height: 383px;
+  height: 383px;
 }
 
-/* blur the background image a bit so that the text can be more legible*/
-/* The image will not be blurred when hovering/clicking on the switch image buttons */
 #imageGallery > div:hover a img{
+
+  /* blur the background image a bit so that the text can be more legible*/
+  /* The image will not be blurred when hovering/clicking on the switch image buttons */
 
   /* Apply a duration to make the blurring/un-blurring less abrupt */
   transition: 500ms filter linear;
@@ -253,8 +260,8 @@ section{
 
 }
 
-/* Un-blur the image */
 #imageGallery > div:not(:hover) a img{
+  /* Un-blur the image */
   transition: 500ms filter linear;
   -webkit-transition: 500ms -webkit-filter linear;
   -moz-transition: 500ms -moz-filter linear;
@@ -266,7 +273,6 @@ section{
 }
 
 #captionDiv{
-  /*margin: 33px 12.5% ;*/
   margin: 15px 14.5%;
   bottom: 0;
   /*height: 0;*/
@@ -313,5 +319,13 @@ a, a:hover{
 
 .nav-dots label:hover {
   cursor: pointer;
+}
+
+.nav-dots label:hover,
+#first{
   background-color: #FFBF00;
+}
+
+body{
+  height: 1500px;
 }
