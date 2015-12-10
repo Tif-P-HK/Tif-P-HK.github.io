@@ -80,7 +80,7 @@ $(document).ready(function(){
   $.each($(".currentPage"), function(index, value){
     breadCrumbText += value.firstChild.innerHTML + " > ";
   });
-  $(".breadcrumb").html(breadCrumbText.substring(0, breadCrumbText.length - 2));
+  $(".breadcrumb").html(breadCrumbText.substring(0, breadCrumbText.length - 2)); 
 
   // Function for side menu:
   $(window).scroll(function(){
