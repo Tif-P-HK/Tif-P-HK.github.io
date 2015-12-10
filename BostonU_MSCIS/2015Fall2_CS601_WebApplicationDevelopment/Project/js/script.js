@@ -20,17 +20,17 @@ $(document).ready(function(){
       {
         header.data("size","small");
         header.stop().animate({
-          height:"-=32"
+          height:"45"
         },600);
 
         siteTitle.stop().animate({
-          fontSize:"-=4",
-          marginTop: "-=20"
+          fontSize:"26",
+          marginTop: "10"
         }, 600);
 
         mainMenuItem.stop().animate({
-          paddingTop:"-=16",
-          paddingBottom:"-=16",
+          paddingTop:"5",
+          paddingBottom:"5"
         },600);
 
         // For pages that have the side menu, adjust it's margin-top to make it stay near the top of the page
@@ -44,17 +44,17 @@ $(document).ready(function(){
       {
         header.data("size","big");
         header.stop().animate({
-          height:"+=32"
+          height:"80"
         },600);
 
         siteTitle.stop().animate({
-          fontSize:"+=4",
-          marginTop: "+=20"
+          fontSize:"30",
+          marginTop: "30"
         }, 600);
 
         mainMenuItem.stop().animate({
-          paddingTop:"+=15",
-          paddingBottom:"+=15",
+          paddingTop:"23",
+          paddingBottom:"23",
         },600);
 
         sideMenu.css("margin-top", "40px");

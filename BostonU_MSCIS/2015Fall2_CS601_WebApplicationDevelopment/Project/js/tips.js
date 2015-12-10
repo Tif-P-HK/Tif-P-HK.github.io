@@ -4,7 +4,7 @@ $(document).ready(function(){
   /*
    * Main functions
    * */
-  var url = "https://gist.githubusercontent.com/Tif-P-HK/042748d0335ad04eb0b6/raw/c93fe06fefe067c4305cf7078b16166c7d854b15/tifphk-tips.json";
+  var url = "https://gist.githubusercontent.com/Tif-P-HK/042748d0335ad04eb0b6/raw/14985ae4fb8745b907b2139f01dcdb2cf27e30ed/tifphk-tips.json";
   loadJSON(url, function(response) {
     // When DOM is ready, create a JSON "tips" object based on the JSON file,
     // then populate the page with the info from the object
@@ -22,7 +22,7 @@ $(document).ready(function(){
     for(var i=0; i<this.tips.length; i++){
       var tip = this.tips[i];
       var tipDiv = $("<div/>")
-        .attr("id", tip.id)
+        .attr("id", "tip-" + tip.id)
         .addClass("tip");
 
       // title
@@ -80,6 +80,15 @@ $(document).ready(function(){
       tipsDiv.append(tipDiv);
     };
   }
+
+  $(".accordion li ul li").click(function(){
+    // An item on the side menu is clicked. Use the item's id to find the corresponding tip div
+    // Then scroll the page to the div. A small offset (-70) is applied so that the div won't be covered by the header
+    var id = $(this).attr("id");
+    var tip = $("#tip-" + id);
+    $(window).scrollTop(tip.offset().top - 70);
+
+  });
 
   function expandImage(){
     /* Functions for the lightbox effect */
