@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116046905-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-116046905-1');
+  </script>
+
   <meta charset="UTF-8">
   <title>CS601 / Tif Pun</title>
   <link rel="icon" type="image/png" href="img/icon.png" sizes="32x32" />
@@ -9,94 +20,125 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/news.css">
 </head>
+
 <body>
-<header id="header">
-  <h1 class="siteTitle capitalize"><a href="index.html">hello, hong kong</a></h1>
-  <nav>
-    <ul id="mainMenu">
-      <li class="expandableItem"><a href="#">About HK</a>
-        <ul class="subMenu">
-          <li><a href="statistics.html">Facts</a></li>
-          <li><a href="districts.html">Districts</a></li>
-        </ul>
-      </li>
-      <li><a href="tips.html">Tips From Locals</a></li>
-      <li class="currentPage"><a href="news.html">News</a></li>
-    </ul>
-  </nav>
-</header>
+  <header id="header">
+    <h1 class="siteTitle capitalize">
+      <a href="index.html">hello, hong kong</a>
+    </h1>
+    <nav>
+      <ul id="mainMenu">
+        <li class="expandableItem">
+          <a href="#">About HK</a>
+          <ul class="subMenu">
+            <li>
+              <a href="statistics.html">Facts</a>
+            </li>
+            <li>
+              <a href="districts.html">Districts</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="tips.html">Tips From Locals</a>
+        </li>
+        <li class="currentPage">
+          <a href="news.html">News</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-<aside class="leftSidebar"></aside>
-<aside class="rightSidebar"></aside>
+  <aside class="leftSidebar"></aside>
+  <aside class="rightSidebar"></aside>
 
-<main>
-  <p class="breadcrumb"></p>
-  <div id="emptyDiv">
-    <!-- This is the div of the accordion menu on other pages.
+  <main>
+    <p class="breadcrumb"></p>
+    <div id="emptyDiv">
+      <!-- This is the div of the accordion menu on other pages.
     Keeping it here to keep the layout consistent across pages -->
-  </div>
+    </div>
 
-  <!-- Div that shows the upcoming events -->
-  <div>
-    <h1 class="sectionTitle glow-blue">upcoming events</h1>
-    <div id="newsDiv" class="right">
-      <h2 class="sectionTitle glow-blue">News</h2>
-      <div class="scrollable">
-        <div class="items">
-          <div>
-            <div class="imgDiv">
-              <img src="//www.discoverhongkong.com/eng/images/see-do/highlight-attractions/thumbnails/1.1.2.1-AOS.jpg" alt="Avenue of Stars">
+    <!-- Div that shows the upcoming events -->
+    <div>
+      <h1 class="sectionTitle glow-blue">upcoming events</h1>
+      <div id="newsDiv" class="right">
+        <h2 class="sectionTitle glow-blue">News</h2>
+        <div class="scrollable">
+          <div class="items">
+            <div>
+              <div class="imgDiv">
+                <img src="//www.discoverhongkong.com/eng/images/see-do/highlight-attractions/thumbnails/1.1.2.1-AOS.jpg" alt="Avenue of Stars">
+              </div>
+              <p>
+                <a href="//www.discoverhongkong.com/eng/about-hktb/news.jsp">Avenue of Starsin Tsim Sha Tsui is closed for repair and improvement works, which are expected to be completed
+                  around the end of 2018</a>.</p>
             </div>
-            <p><a href="//www.discoverhongkong.com/eng/about-hktb/news.jsp">Avenue of Starsin Tsim Sha Tsui is closed for repair and improvement works, which are expected to be completed around the end of 2018</a>.</p>
-          </div>
-          <div>
-            <div class="imgDiv">
-              <img src="//www.discoverhongkong.com/eng/images/see-do/culture-heritage/thumbnails/1.4.4.2.3-Hong-Kong-Space-Museum.jpg" alt="Hong Kong Space Museum">
+            <div>
+              <div class="imgDiv">
+                <img src="//www.discoverhongkong.com/eng/images/see-do/culture-heritage/thumbnails/1.4.4.2.3-Hong-Kong-Space-Museum.jpg"
+                  alt="Hong Kong Space Museum">
+              </div>
+              <p>
+                <a href="//www.discoverhongkong.com/eng/about-hktb/news.jsp">Hong Kong Space Museumis closed for renovation works until 1 March 2016</a>.</p>
             </div>
-            <p><a href="//www.discoverhongkong.com/eng/about-hktb/news.jsp">Hong Kong Space Museumis closed for renovation works until 1 March 2016</a>.</p>
-          </div>
-          <div>
-            <div class="imgDiv">
-              <img src="//www.discoverhongkong.com/eng/images/about-hktb/news/news_MT_MichelleYeoh.jpg" alt="Kung Fu star Michelle Yeoh">
+            <div>
+              <div class="imgDiv">
+                <img src="//www.discoverhongkong.com/eng/images/about-hktb/news/news_MT_MichelleYeoh.jpg" alt="Kung Fu star Michelle Yeoh">
+              </div>
+              <p>
+                <a href="//www.discoverhongkong.com/eng/about-hktb/news.jsp">Legendary kung fu star Michelle Yeoh’s wax figure joins Madame Tussauds Hong Kong</a>.</p>
             </div>
-            <p><a href="//www.discoverhongkong.com/eng/about-hktb/news.jsp">Legendary kung fu star Michelle Yeoh’s wax figure joins Madame Tussauds Hong Kong</a>.</p>
-          </div>
-          <div>
-            <div class="imgDiv">
-              <img src="//www.discoverhongkong.com/eng/images/see-do/arts-performance/thumbnails/1.3.4.6-Hong-Kong-Museum-of-Art.jpg" alt="HK Museum of Art">
+            <div>
+              <div class="imgDiv">
+                <img src="//www.discoverhongkong.com/eng/images/see-do/arts-performance/thumbnails/1.3.4.6-Hong-Kong-Museum-of-Art.jpg" alt="HK Museum of Art">
+              </div>
+              <p>
+                <a href="//www.discoverhongkong.com/eng/about-hktb/news.jsp">Hong Kong Museum of Art is now closed for a major renovation and expansion project, and is expected to reopen
+                  in 2018 or 2019</a>.</p>
             </div>
-            <p><a href="//www.discoverhongkong.com/eng/about-hktb/news.jsp">Hong Kong Museum of Art is now closed for a major renovation and expansion project, and is expected to reopen in 2018 or 2019</a>.</p>
-          </div>
-          <div>
-            <div class="imgDiv">
-              <img src="//www.discoverhongkong.com/eng/images/about-hktb/news/news_hk-pals.jpg" alt="Visitor Center">
+            <div>
+              <div class="imgDiv">
+                <img src="//www.discoverhongkong.com/eng/images/about-hktb/news/news_hk-pals.jpg" alt="Visitor Center">
+              </div>
+              <p>
+                <a href="//www.discoverhongkong.com/eng/about-hktb/news.jsp">Want to explore Hong Kong like a local? Come and talk to a Hong Kong Pal at one of our two in-town visitor
+                  centres</a>.</p>
             </div>
-            <p><a href="//www.discoverhongkong.com/eng/about-hktb/news.jsp">Want to explore Hong Kong like a local? Come and talk to a Hong Kong Pal at one of our two in-town visitor centres</a>.</p>
-          </div>
-          <div>
-            <div class="imgDiv">
-              <img src="//www.discoverhongkong.com/eng/images/about-hktb/news/news_10mostliked.jpg" alt="Hong Kong Architecture of the Century">
+            <div>
+              <div class="imgDiv">
+                <img src="//www.discoverhongkong.com/eng/images/about-hktb/news/news_10mostliked.jpg" alt="Hong Kong Architecture of the Century">
+              </div>
+              <p>
+                <a href="//www.discoverhongkong.com/eng/about-hktb/news.jsp">Organised by Hong Kong Architecture Centre (HKAC), the results of ‘My 10 Most “Liked” Hong Kong Architecture
+                  of the Century’ have been announced</a>.</p>
             </div>
-            <p><a href="//www.discoverhongkong.com/eng/about-hktb/news.jsp">Organised by Hong Kong Architecture Centre (HKAC), the results of ‘My 10 Most “Liked” Hong Kong Architecture of the Century’ have been announced</a>.</p>
           </div>
         </div>
       </div>
-    </div>
-    <!-- The tab menu -->
-    <div id="eventsDiv">
-      <ul>
-        <li class="current"><a href="#">Now</a></li>
-        <li class="notAvailableMonth"><a href="#">Jan 2016</a></li>
-        <li class="notAvailableMonth"><a href="#">Feb 2016</a></li>
-        <li class="notAvailableMonth"><a href="#">Mar 2016</a></li>
-      </ul>
-      <div id="imageGallery">
-        <!-- Show this when months with no content available (i.e. those with the notAvailableMonth class) are clicked -->
-        <div id="notAvailableTextDiv" class="hide">
-          <p class="glow-blue">Coming soon</p>
-        </div>
+      <!-- The tab menu -->
+      <div id="eventsDiv">
+        <ul>
+          <li class="current">
+            <a href="#">Now</a>
+          </li>
+          <li class="notAvailableMonth">
+            <a href="#">Jan 2016</a>
+          </li>
+          <li class="notAvailableMonth">
+            <a href="#">Feb 2016</a>
+          </li>
+          <li class="notAvailableMonth">
+            <a href="#">Mar 2016</a>
+          </li>
+        </ul>
+        <div id="imageGallery">
+          <!-- Show this when months with no content available (i.e. those with the notAvailableMonth class) are clicked -->
+          <div id="notAvailableTextDiv" class="hide">
+            <p class="glow-blue">Coming soon</p>
+          </div>
 
-        <!--
+          <!--
              Adding the .imageGalleryUI div here as a wrapper so that the images can be blurred whenever mouse hovers here.
              NOTE: Additional CSS was added to make sure that when hovering on the div with the round buttons under the images, images will NOT be blurred (see news.css)
              NOTE: Image blurring is not supported in IE9+ (reference: http://thenewcode.com/534/Crossbrowser-Image-Blur-with-CSS)
@@ -104,46 +146,50 @@
              Source of the images and contents on this page:
              //www.discoverhongkong.com/eng/index.jsp
        -->
-        <div class="imageGalleryUI">
-          <div class="eventsOnMonth">
-            <a class="img1" href="//gohongkong.about.com/od/eventsinhongkong/tp/newyearinhongkong.htm">
-              <img src="//www.discoverhongkong.com/eng/images/home/highlights/NYCD_610x356_en.jpg" alt="Hong Kong New Year Countdown Celebrations">
-            </a>
-            <div id="captionDiv" class="roundBorder-3px">
-              <p>Not to be confused with Chinese New Year in Hong Kong, which is the biggest celebration of the year, New Year in Hong Kong, meaning December 31st, is also the source of big parties and even bigger hangovers. Below, you’ll find our top recommendations, from Hong Kong’s own Times Square to club parties, to enjoy the countdown.</p>
+          <div class="imageGalleryUI">
+            <div class="eventsOnMonth">
+              <a class="img1" href="//gohongkong.about.com/od/eventsinhongkong/tp/newyearinhongkong.htm">
+                <img src="//www.discoverhongkong.com/eng/images/home/highlights/NYCD_610x356_en.jpg" alt="Hong Kong New Year Countdown Celebrations">
+              </a>
+              <div id="captionDiv" class="roundBorder-3px">
+                <p>Not to be confused with Chinese New Year in Hong Kong, which is the biggest celebration of the year, New
+                  Year in Hong Kong, meaning December 31st, is also the source of big parties and even bigger hangovers.
+                  Below, you’ll find our top recommendations, from Hong Kong’s own Times Square to club parties, to enjoy
+                  the countdown.</p>
+              </div>
+
+              <a class="hide" href="//www.discoverhongkong.com/eng/see-do/highlight-attractions/harbour-view/hk-pulse.jsp">
+                <img src="//www.discoverhongkong.com/eng/images/home/highlights/hkpulse_610x356_en.jpg" alt="Hong Kong Pulse 3D Light Show">
+              </a>
+
+              <a class="hide" href="//www.discoverhongkong.com/eng/see-do/events-festivals/events-calendar/details.jsp?id=72082">
+                <img src="//www.discoverhongkong.com/eng/images/home/highlights/HKIR_610x356_en.jpg" alt="Hong Kong International Races (Horseracing)">
+              </a>
+
             </div>
-
-            <a class="hide" href="//www.discoverhongkong.com/eng/see-do/highlight-attractions/harbour-view/hk-pulse.jsp">
-              <img src="//www.discoverhongkong.com/eng/images/home/highlights/hkpulse_610x356_en.jpg" alt="Hong Kong Pulse 3D Light Show">
-            </a>
-
-            <a class="hide" href="//www.discoverhongkong.com/eng/see-do/events-festivals/events-calendar/details.jsp?id=72082">
-              <img src="//www.discoverhongkong.com/eng/images/home/highlights/HKIR_610x356_en.jpg" alt="Hong Kong International Races (Horseracing)">
-            </a>
-
           </div>
-        </div>
 
-        <!--
+          <!--
           Image switching control ("nav-dots"). One label for one image
           Reference:
           //codepen.io/AMKohn/pen/EKJHf?editors=110
         -->
-        <div class="nav-dots imageGalleryUI">
-          <label class="imgBtn" id="first"></label>
-          <label class="imgBtn"></label>
-          <label class="imgBtn"></label>
+          <div class="nav-dots imageGalleryUI">
+            <label class="imgBtn" id="first"></label>
+            <label class="imgBtn"></label>
+            <label class="imgBtn"></label>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</main>
-<footer>
-  <p>&copy; 2015, Tif Hang Kwai Pun</p>
-</footer>
-<script src="js/libs/jquery-2.1.4.min.js"></script>
-<script src="js/script.js"></script>
-<script src="js/news.js"></script>
+  </main>
+  <footer>
+    <p>&copy; 2015, Tif Hang Kwai Pun</p>
+  </footer>
+  <script src="js/libs/jquery-2.1.4.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/news.js"></script>
 
 </body>
+
 </html>

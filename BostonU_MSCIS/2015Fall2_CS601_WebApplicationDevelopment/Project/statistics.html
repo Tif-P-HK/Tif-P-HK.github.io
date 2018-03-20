@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116046905-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-116046905-1');
+  </script>
+
   <meta charset="UTF-8">
   <title>CS601 / Tif Pun</title>
   <link rel="icon" type="image/png" href="img/icon.png" sizes="32x32" />
@@ -9,153 +20,196 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/statistics.css">
 </head>
+
 <body>
-<header id="header">
-  <h1 class="siteTitle capitalize"><a href="index.html">hello, hong kong</a></h1>
-  <nav>
-    <ul id="mainMenu">
-      <li class="expandableItem currentPage"><a href="#">About HK</a>
-        <ul class="subMenu">
-          <li class="currentPage"><a href="statistics.html">Facts</a></li>
-          <li><a href="districts.html">Districts</a></li>
-        </ul>
-      </li>
-      <li><a href="tips.html">Tips From Locals</a></li>
-      <li><a href="news.html">News</a></li>
-    </ul>
-  </nav>
-</header>
+  <header id="header">
+    <h1 class="siteTitle capitalize">
+      <a href="index.html">hello, hong kong</a>
+    </h1>
+    <nav>
+      <ul id="mainMenu">
+        <li class="expandableItem currentPage">
+          <a href="#">About HK</a>
+          <ul class="subMenu">
+            <li class="currentPage">
+              <a href="statistics.html">Facts</a>
+            </li>
+            <li>
+              <a href="districts.html">Districts</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="tips.html">Tips From Locals</a>
+        </li>
+        <li>
+          <a href="news.html">News</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-<aside class="leftSidebar"></aside>
-<aside class="rightSidebar"></aside>
+  <aside class="leftSidebar"></aside>
+  <aside class="rightSidebar"></aside>
 
-<main>
-  <p class="breadcrumb"></p>
+  <main>
+    <p class="breadcrumb"></p>
 
-  <!--
+    <!--
   Content on this page was mainly adopted from
   https://en.wikipedia.org/wiki/Hong_Kong, and
   http://www.statistics.gov.hk/pub/B10100062015AN15E0100.pdf
   -->
 
-  <!-- Div for the map at the top -->
-  <div>
-    <div id="mapDiv"><div id="hongKongMap" class="roundBorder-3px"></div></div>
-
-    <!--Photo adopted from http://www.protocol.gov.hk/flags/chi/r_flag/download.html-->
-    <img id="hongKongLogo" src="img/flag01small.jpg" alt="Flag of Hong Kong" title="Flag of Hong Kong"/>
-
-    <strong><a href="//en.wikipedia.org/wiki/Hong_Kong" target="_blank">Hong Kong</a></strong> (香港; "Fragrant Harbour"), officially Hong Kong Special Administrative Region of the People's Republic of China, is an autonomous territory on the southern coast of China at the Pearl River Estuary and the South China Sea. Hong Kong is known for its skyline and deep natural harbour. It has an area of 1104 km<sup>2</sup> and shares its northern border with the Guangdong Province of Mainland China. With around 7.2 million Hongkongers of various nationalities, Hong Kong is one of the world's most densely populated metropolises.
-  </div>
-
-  <!-- Section for details. Using section since this part is quite self contained-->
-  <section class="justify">
-    <h1 class="sectionTitle glow-blue noFloat">demographics</h1>
-    <div class="box left">
-      <div id="ageGroupChart" class="chart right"></div>
-      <div class="chartDescription left">
-        <p><span class="paragraphTitle">population by age: </span>Approximately 73%, or 5.37 million of the Hong Kong population are between the age of 15 to 64.</p>
+    <!-- Div for the map at the top -->
+    <div>
+      <div id="mapDiv">
+        <div id="hongKongMap" class="roundBorder-3px"></div>
       </div>
+
+      <!--Photo adopted from http://www.protocol.gov.hk/flags/chi/r_flag/download.html-->
+      <img id="hongKongLogo" src="img/flag01small.jpg" alt="Flag of Hong Kong" title="Flag of Hong Kong" />
+
+      <strong>
+        <a href="//en.wikipedia.org/wiki/Hong_Kong" target="_blank">Hong Kong</a>
+      </strong> (香港; "Fragrant Harbour"), officially Hong Kong Special Administrative Region of the People's Republic of China, is
+      an autonomous territory on the southern coast of China at the Pearl River Estuary and the South China Sea. Hong Kong
+      is known for its skyline and deep natural harbour. It has an area of 1104 km
+      <sup>2</sup> and shares its northern border with the Guangdong Province of Mainland China. With around 7.2 million Hongkongers
+      of various nationalities, Hong Kong is one of the world's most densely populated metropolises.
     </div>
 
-    <div class="box right">
-      <div id="maleToFemaleChart" class="chart right"></div>
-      <div class="chartDescription left">
-        <p><span class="paragraphTitle">male/female ratio: </span>The city's population in 2014 is 7.24 million, with an average annual growth rate of 0.8%. The male to female population ratio is approximately 46% to 54%.</p>
+    <!-- Section for details. Using section since this part is quite self contained-->
+    <section class="justify">
+      <h1 class="sectionTitle glow-blue noFloat">demographics</h1>
+      <div class="box left">
+        <div id="ageGroupChart" class="chart right"></div>
+        <div class="chartDescription left">
+          <p>
+            <span class="paragraphTitle">population by age: </span>Approximately 73%, or 5.37 million of the Hong Kong population are between the age
+            of 15 to 64.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="box left">
-      <div id="ethnicGroupChart" class="chart right"></div>
-      <div class="chartDescription left">
-        <p><span class="paragraphTitle">ethnicity: </span>The Hong Kong population comprises of <a href="//www.had.gov.hk/rru/english/info/info_dem.html">93.6% ethnic Chinese</a>, while the rest of the population consists of mainly Indonesian, Filipino, white and Indian.</p>
-        <p>Chinese (Cantonese as the spoken standard, Traditional Chinese as the written standard) and English are the official languages in Hong Kong. Most Hongkongers can also speak Mandarin Chinese.</p>
+      <div class="box right">
+        <div id="maleToFemaleChart" class="chart right"></div>
+        <div class="chartDescription left">
+          <p>
+            <span class="paragraphTitle">male/female ratio: </span>The city's population in 2014 is 7.24 million, with an average annual growth rate of
+            0.8%. The male to female population ratio is approximately 46% to 54%.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="box right">
-      <div id="businessesChart" class="chart right"></div>
-      <div class="chartDescription left">
-        <p><span class="paragraphTitle">industries: </span>Hong Kong has approximately <a href="//www.censtatd.gov.hk/hkstat/sub/so30.jsp">61.2%, or 3,922,000 population of labor force</a> as of October 2015. The top four industry sectors include:</p>
-        <ul class="smallfont">
-          <li>Import/export, wholesale and retail trades (20.8%)</li>
-          <li>Social and personal services (12.6%)</li>
-          <li>Financing and insurance (5.6%)</li>
-          <li>Transportation, storage, postal and courier services (4.5%)</li>
-        </ul>
+      <div class="box left">
+        <div id="ethnicGroupChart" class="chart right"></div>
+        <div class="chartDescription left">
+          <p>
+            <span class="paragraphTitle">ethnicity: </span>The Hong Kong population comprises of
+            <a href="//www.had.gov.hk/rru/english/info/info_dem.html">93.6% ethnic Chinese</a>, while the rest of the population consists of mainly Indonesian, Filipino, white and
+            Indian.</p>
+          <p>Chinese (Cantonese as the spoken standard, Traditional Chinese as the written standard) and English are the official
+            languages in Hong Kong. Most Hongkongers can also speak Mandarin Chinese.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="box left">
-      <div id="crimeChart" class="chart right"></div>
-      <div class="chartDescription left">
-        <p><span class="paragraphTitle">crime rate: </span>
-          According to <a href="//safecities.economist.com/wp-content/uploads/2015/01/EIU_Safe_Cities_Index_2015_white_paper-1.pdf">a report published by the Economist Intelligent Unit</a> in 2015,
-          Hong Kong is ranked the 11<sup>th</sup> safest city in the world, the 6<sup>th</sup> sfest city in the Asia-Pacific region.
+      <div class="box right">
+        <div id="businessesChart" class="chart right"></div>
+        <div class="chartDescription left">
+          <p>
+            <span class="paragraphTitle">industries: </span>Hong Kong has approximately
+            <a href="//www.censtatd.gov.hk/hkstat/sub/so30.jsp">61.2%, or 3,922,000 population of labor force</a> as of October 2015. The top four industry sectors include:</p>
+          <ul class="smallfont">
+            <li>Import/export, wholesale and retail trades (20.8%)</li>
+            <li>Social and personal services (12.6%)</li>
+            <li>Financing and insurance (5.6%)</li>
+            <li>Transportation, storage, postal and courier services (4.5%)</li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <section>
-    <h1 class="sectionTitle glow-blue noFloat">environment</h1>
-    <div class="box left">
-      <div id="landAreaChart" class="chart right"></div>
-      <div class="chartDescription left">
-        <p><span class="paragraphTitle">land area: </span>Hong Kong is situated at the south-eastern tip of the mainland of China, with a
-          total area of about 1 105.6 square kilometres covering Hong Kong Island,
-          Kowloon, and the New Territories and Islands. Less than 25% of the land are built-up areas. With over 7 million of population,
-          the population density of some part of the city can be as high as <a href="//lsecities.net/media/objects/articles/high-density-living-in-hong-kong/en-gb/">400,000 people per sq. km.</a></p>
+      <div class="box left">
+        <div id="crimeChart" class="chart right"></div>
+        <div class="chartDescription left">
+          <p>
+            <span class="paragraphTitle">crime rate: </span>
+            According to
+            <a href="//safecities.economist.com/wp-content/uploads/2015/01/EIU_Safe_Cities_Index_2015_white_paper-1.pdf">a report published by the Economist Intelligent Unit</a> in 2015, Hong Kong is ranked the 11
+            <sup>th</sup> safest city in the world, the 6
+            <sup>th</sup> sfest city in the Asia-Pacific region.
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="box right">
-      <div id="weatherChart" class="chart right"></div>
-      <div class="chartDescription smallDiv left">
-        <p>
-          <span class="paragraphTitle">climate: </span>Hong Kong has a humid subtropical climate, most of the rainfall occurs from May to September. Fall and winter are the best seasons to visit Hong Kong,
-          with dry weather, low humidity and comfortable temperatures. The average temperature ranges from 16.5&deg;C (61.7&deg;F) in January to 32.4&deg;C (90.3&deg;F) in July.
-        </p>
+    <section>
+      <h1 class="sectionTitle glow-blue noFloat">environment</h1>
+      <div class="box left">
+        <div id="landAreaChart" class="chart right"></div>
+        <div class="chartDescription left">
+          <p>
+            <span class="paragraphTitle">land area: </span>Hong Kong is situated at the south-eastern tip of the mainland of China, with a total area
+            of about 1 105.6 square kilometres covering Hong Kong Island, Kowloon, and the New Territories and Islands. Less
+            than 25% of the land are built-up areas. With over 7 million of population, the population density of some part
+            of the city can be as high as
+            <a href="//lsecities.net/media/objects/articles/high-density-living-in-hong-kong/en-gb/">400,000 people per sq. km.</a>
+          </p>
+        </div>
       </div>
-      <div id="unitToggleDiv" class="right">
-        <input type="radio" name="tempUnit" id="celsiusBtn" checked>&deg;C
-        <input type="radio" name="tempUnit" id="fahrenheitBtn">&deg;F
-      </div>
-    </div>
 
-    <div class="box left">
-      <div class="chart right">
-        <svg id="homeSizeGraphic">
-          <rect x="0" y="0" height="150" width="150"></rect>
-          <rect x="39" y="39" height="71" width="71"></rect>
-          <line x1="75" y1="75" x2="180" y2="75"></line>
-          <text y="85">
-            <tspan x="182" dy="-15">Avg. H.K. home size:</tspan>
-            <tspan x="182" dy="15" class="bold">484 sq. ft</tspan>
-          </text>
-          <line x1="75" y1="129" x2="180" y2="129"></line>
-          <text y="140">
-            <tspan x="182" dy="-15">Avg. U.S. home size:</tspan>
-            <tspan x="182" dy="15" class="bold">2164 sq. ft</tspan>
-          </text>
-        </svg>
+      <div class="box right">
+        <div id="weatherChart" class="chart right"></div>
+        <div class="chartDescription smallDiv left">
+          <p>
+            <span class="paragraphTitle">climate: </span>Hong Kong has a humid subtropical climate, most of the rainfall occurs from May to September.
+            Fall and winter are the best seasons to visit Hong Kong, with dry weather, low humidity and comfortable temperatures.
+            The average temperature ranges from 16.5&deg;C (61.7&deg;F) in January to 32.4&deg;C (90.3&deg;F) in July.
+          </p>
+        </div>
+        <div id="unitToggleDiv" class="right">
+          <input type="radio" name="tempUnit" id="celsiusBtn" checked>&deg;C
+          <input type="radio" name="tempUnit" id="fahrenheitBtn">&deg;F
+        </div>
       </div>
-      <div class="chartDescription left">
-        <p>
-          <span class="paragraphTitle">home size: </span>The <a href="//shrinkthatfootprint.com/how-big-is-a-house">average home size in Hong Kong</a>
-          is 45 m<sup>2</sup> (484 ft<sup>2</sup>) i.e. about 22.4% of the average home size in the U.S. (201 m<sup>2</sup>, or 2,164 ft<sup>2</sup>).
-        </p>
+
+      <div class="box left">
+        <div class="chart right">
+          <svg id="homeSizeGraphic">
+            <rect x="0" y="0" height="150" width="150"></rect>
+            <rect x="39" y="39" height="71" width="71"></rect>
+            <line x1="75" y1="75" x2="180" y2="75"></line>
+            <text y="85">
+              <tspan x="182" dy="-15">Avg. H.K. home size:</tspan>
+              <tspan x="182" dy="15" class="bold">484 sq. ft</tspan>
+            </text>
+            <line x1="75" y1="129" x2="180" y2="129"></line>
+            <text y="140">
+              <tspan x="182" dy="-15">Avg. U.S. home size:</tspan>
+              <tspan x="182" dy="15" class="bold">2164 sq. ft</tspan>
+            </text>
+          </svg>
+        </div>
+        <div class="chartDescription left">
+          <p>
+            <span class="paragraphTitle">home size: </span>The
+            <a href="//shrinkthatfootprint.com/how-big-is-a-house">average home size in Hong Kong</a>
+            is 45 m
+            <sup>2</sup> (484 ft
+            <sup>2</sup>) i.e. about 22.4% of the average home size in the U.S. (201 m
+            <sup>2</sup>, or 2,164 ft
+            <sup>2</sup>).
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
-</main>
-<footer>
-  <p>&copy; 2015, Tif Hang Kwai Pun</p>
-</footer>
-<script src="js/libs/d3.min.js" charset="utf-8"></script>
-<script src="js/libs/c3.js" charset="utf-8"></script>
-<script src="js/libs/jquery-2.1.4.min.js" charset="utf-8"></script>
-<script src="//js.arcgis.com/3.14/"></script>
-<script src="js/script.js"></script>
-<script src="js/statistics.js"></script>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2015, Tif Hang Kwai Pun</p>
+  </footer>
+  <script src="js/libs/d3.min.js" charset="utf-8"></script>
+  <script src="js/libs/c3.js" charset="utf-8"></script>
+  <script src="js/libs/jquery-2.1.4.min.js" charset="utf-8"></script>
+  <script src="//js.arcgis.com/3.14/"></script>
+  <script src="js/script.js"></script>
+  <script src="js/statistics.js"></script>
 </body>
+
 </html>

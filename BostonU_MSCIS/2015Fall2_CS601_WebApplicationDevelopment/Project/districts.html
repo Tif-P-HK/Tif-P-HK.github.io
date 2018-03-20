@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116046905-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-116046905-1');
+  </script>
+
   <meta charset="UTF-8">
   <title>CS601 / Tif Pun</title>
   <link rel="icon" type="image/png" href="img/icon.png" sizes="32x32" />
@@ -9,30 +20,42 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/districts.css">
 </head>
+
 <body>
-<header id="header">
-  <h1 class="siteTitle capitalize"><a href="index.html">hello, hong kong</a></h1>
-  <nav>
-    <ul id="mainMenu">
-      <li class="expandableItem currentPage"><a href="#">About HK</a>
-        <ul class="subMenu">
-          <li><a href="statistics.html">Facts</a></li>
-          <li class="currentPage"><a href="districts.html">Districts</a></li>
-        </ul>
-      </li>
-      <li><a href="tips.html">Tips From Locals</a></li>
-      <li><a href="news.html">News</a></li>
-    </ul>
-  </nav>
-</header>
+  <header id="header">
+    <h1 class="siteTitle capitalize">
+      <a href="index.html">hello, hong kong</a>
+    </h1>
+    <nav>
+      <ul id="mainMenu">
+        <li class="expandableItem currentPage">
+          <a href="#">About HK</a>
+          <ul class="subMenu">
+            <li>
+              <a href="statistics.html">Facts</a>
+            </li>
+            <li class="currentPage">
+              <a href="districts.html">Districts</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="tips.html">Tips From Locals</a>
+        </li>
+        <li>
+          <a href="news.html">News</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-<aside class="leftSidebar"></aside>
-<aside class="rightSidebar"></aside>
+  <aside class="leftSidebar"></aside>
+  <aside class="rightSidebar"></aside>
 
-<main>
-  <p class="breadcrumb"></p>
+  <main>
+    <p class="breadcrumb"></p>
 
-  <!--
+    <!--
     NOTE 1: As of now, only the following districts have data: Central and Western, Eastern, Kwun Tong.
       If other districts are selected, the site will fall back to show the default "Hong Kong" info
     NOTE 2: Hong Kong + Central and Western + Kwun Tong have multiple images. Images will be shown using a slideshow.
@@ -41,77 +64,82 @@
    Accordion menu reference:
     http://thecodeplayer.com/walkthrough/vertical-accordion-menu-using-jquery-css3
   -->
-  <div id="sideMenuDiv">
-    <ul class="accordion" id="districtMenu">
-      <li class="active">
-        <h3 class="menuHeader" id="hkIsland">Hong Kong Island</h3>
-        <ul>
-          <li id="central">Central and Western</li>
-          <li id="eastern">Eastern</li>
-          <li id="southern">Southern</li>
-          <li id="wanChai">Wan Chai</li>
-        </ul>
-      </li>
-      <li>
-        <h3 class="menuHeader" id="kowloon">Kowloon</h3>
-        <ul>
-          <li id="shamShuiPo">Sham Shui Po</li>
-          <li id="kowloonCity">Kowloon City</li>
-          <li id="kwunTong">Kwun Tong</li>
-          <li id="wongTaiSin">Wong Tai Sin</li>
-          <li id="yauTsimMong">Yau Tsim Mong</li>
-        </ul>
-      </li>
-      <li>
-        <h3 class="menuHeader" id="newTerritories">New Territories</h3>
-        <ul>
-          <li id="kwaiTsing">Kwai Tsing</li>
-          <li id="north">North</li>
-          <li id="saiKung">Sai Kung</li>
-          <li id="shatin">Sha Tin</li>
-          <li id="taiPo">Tai Po</li>
-          <li id="tsuenWan">Tsuen Wan</li>
-          <li id="tuenMun">Tuen Mun</li>
-          <li id="yuenLong">Yuen Long</li>
-          <li id="islands">Islands</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-  <section>
-
-    <!-- The map on the right. The map will recenter at user's selected district -->
-    <div id="mapDiv" class="right">
-      <div id="hongKongMap" class="roundBorder-3px"></div>
+    <div id="sideMenuDiv">
+      <ul class="accordion" id="districtMenu">
+        <li class="active">
+          <h3 class="menuHeader" id="hkIsland">Hong Kong Island</h3>
+          <ul>
+            <li id="central">Central and Western</li>
+            <li id="eastern">Eastern</li>
+            <li id="southern">Southern</li>
+            <li id="wanChai">Wan Chai</li>
+          </ul>
+        </li>
+        <li>
+          <h3 class="menuHeader" id="kowloon">Kowloon</h3>
+          <ul>
+            <li id="shamShuiPo">Sham Shui Po</li>
+            <li id="kowloonCity">Kowloon City</li>
+            <li id="kwunTong">Kwun Tong</li>
+            <li id="wongTaiSin">Wong Tai Sin</li>
+            <li id="yauTsimMong">Yau Tsim Mong</li>
+          </ul>
+        </li>
+        <li>
+          <h3 class="menuHeader" id="newTerritories">New Territories</h3>
+          <ul>
+            <li id="kwaiTsing">Kwai Tsing</li>
+            <li id="north">North</li>
+            <li id="saiKung">Sai Kung</li>
+            <li id="shatin">Sha Tin</li>
+            <li id="taiPo">Tai Po</li>
+            <li id="tsuenWan">Tsuen Wan</li>
+            <li id="tuenMun">Tuen Mun</li>
+            <li id="yuenLong">Yuen Long</li>
+            <li id="islands">Islands</li>
+          </ul>
+        </li>
+      </ul>
     </div>
+    <section>
 
-    <!-- Image Gallery/slide show. Content will be generated by JavaScript-->
-    <div id="districtImagesDiv">
-      <div id="imageGallery"></div>
-    </div>
+      <!-- The map on the right. The map will recenter at user's selected district -->
+      <div id="mapDiv" class="right">
+        <div id="hongKongMap" class="roundBorder-3px"></div>
+      </div>
 
-    <!-- Text description and external links of a district. Content will be generated by JavaScript
+      <!-- Image Gallery/slide show. Content will be generated by JavaScript-->
+      <div id="districtImagesDiv">
+        <div id="imageGallery"></div>
+      </div>
+
+      <!-- Text description and external links of a district. Content will be generated by JavaScript
         The following images were adopted from wikipedia. Photo Attribution:
          - "TripAdvisor" by Source. Licensed under Fair use via Wikipedia - https://en.wikipedia.org/wiki/File:TripAdvisor.png#/media/File:TripAdvisor.png
          - "OpenRice (logo)" by Source. Licensed under Fair use via Wikipedia - https://en.wikipedia.org/wiki/File:OpenRice_(logo).gif#/media/File:OpenRice_(logo).gif
      -->
-    <div id="districtInfo">
-      <h1 id="districtTitleText" class="sectionTitle glow-blue"></h1>
-      <div id="districtDescription"></div>
-      <div id="externalSitesLinks">
-        <a id="tripAdvisorUrl" class="hide"><img src="img/220px-TripAdvisor.png" alt="Visit TripAdvisor" class="externalSiteIcon"/></a>
-        <a id="openRiceUrl" class="hide"><img src="img/OpenRice_(logo).gif" alt="Visit OpenRice" class="externalSiteIcon"/></a>
+      <div id="districtInfo">
+        <h1 id="districtTitleText" class="sectionTitle glow-blue"></h1>
+        <div id="districtDescription"></div>
+        <div id="externalSitesLinks">
+          <a id="tripAdvisorUrl" class="hide">
+            <img src="img/220px-TripAdvisor.png" alt="Visit TripAdvisor" class="externalSiteIcon" />
+          </a>
+          <a id="openRiceUrl" class="hide">
+            <img src="img/OpenRice_(logo).gif" alt="Visit OpenRice" class="externalSiteIcon" />
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
-</main>
-<footer>
-  <p>&copy; 2015, Tif Hang Kwai Pun</p>
-</footer>
-<script src="js/libs/jquery-2.1.4.min.js"></script>
-<script src="js/libs/jquery-ui-1.11.4.min.js"></script>
-<script src="//js.arcgis.com/3.14/"></script>
-<script src="js/script.js"></script>
-<script src="js/districts.js"></script>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2015, Tif Hang Kwai Pun</p>
+  </footer>
+  <script src="js/libs/jquery-2.1.4.min.js"></script>
+  <script src="js/libs/jquery-ui-1.11.4.min.js"></script>
+  <script src="//js.arcgis.com/3.14/"></script>
+  <script src="js/script.js"></script>
+  <script src="js/districts.js"></script>
 </body>
+
 </html>

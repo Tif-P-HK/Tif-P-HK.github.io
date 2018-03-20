@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116046905-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-116046905-1');
+  </script>
+
   <meta charset="UTF-8">
   <title>CS601 / Tif Pun</title>
   <link rel="icon" type="image/png" href="img/icon.png" sizes="32x32" />
@@ -9,74 +20,87 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/tips.css">
 </head>
+
 <body>
-<header id="header">
-  <h1 class="siteTitle capitalize"><a href="index.html">hello, hong kong</a></h1>
-  <nav>
-    <ul id="mainMenu">
-      <li class="expandableItem"><a href="#">About HK</a>
-        <ul class="subMenu">
-          <li><a href="statistics.html">Facts</a></li>
-          <li><a href="districts.html">Districts</a></li>
-        </ul>
-      </li>
-      <li class="currentPage"><a href="tips.html">Tips From Locals</a></li>
-      <li><a href="news.html">News</a></li>
-    </ul>
-  </nav>
-</header>
+  <header id="header">
+    <h1 class="siteTitle capitalize">
+      <a href="index.html">hello, hong kong</a>
+    </h1>
+    <nav>
+      <ul id="mainMenu">
+        <li class="expandableItem">
+          <a href="#">About HK</a>
+          <ul class="subMenu">
+            <li>
+              <a href="statistics.html">Facts</a>
+            </li>
+            <li>
+              <a href="districts.html">Districts</a>
+            </li>
+          </ul>
+        </li>
+        <li class="currentPage">
+          <a href="tips.html">Tips From Locals</a>
+        </li>
+        <li>
+          <a href="news.html">News</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-<aside class="leftSidebar"></aside>
-<aside class="rightSidebar"></aside>
+  <aside class="leftSidebar"></aside>
+  <aside class="rightSidebar"></aside>
 
-<main>
-  <p class="breadcrumb"></p>
+  <main>
+    <p class="breadcrumb"></p>
 
-  <!-- Side menu on the left for navigating to different "tips" -->
-  <div id="sideMenuDiv">
-    <ul class="accordion">
-      <li class="active">
-        <h3 class="menuHeader">Visiting HK</h3>
-        <ul>
-          <li id="dataPlan">Data Plan</li>
-          <li id="electricity">Electricity</li>
-          <li id="water">Water</li>
-          <li id="smoking">Smoking</li>
-          <li id="safety">Safety</li>
-        </ul>
-      </li>
-      <li>
-        <h3 class="menuHeader">Live like a Local</h3>
-        <ul>
-          <li id="octopusCard">Octopus Card</li>
-          <li id="money">Money</li>
-          <li id="dining">Dining</li>
-          <li id="inMTR">In the MTR</li>
-          <li id="tipping">Tipping</li>
-          <li id="plasticBag">Plastic Bag Charge</li>
-          <li id="salesTax">Sales tax</li>
-        </ul>
-      </li>
-      <li>
-        <h3 class="menuHeader">Transportation</h3>
-        <ul>
-          <li id="getToHK">getting to HK</li>
-          <li id="getAroundHK">getting around</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
+    <!-- Side menu on the left for navigating to different "tips" -->
+    <div id="sideMenuDiv">
+      <ul class="accordion">
+        <li class="active">
+          <h3 class="menuHeader">Visiting HK</h3>
+          <ul>
+            <li id="dataPlan">Data Plan</li>
+            <li id="electricity">Electricity</li>
+            <li id="water">Water</li>
+            <li id="smoking">Smoking</li>
+            <li id="safety">Safety</li>
+          </ul>
+        </li>
+        <li>
+          <h3 class="menuHeader">Live like a Local</h3>
+          <ul>
+            <li id="octopusCard">Octopus Card</li>
+            <li id="money">Money</li>
+            <li id="dining">Dining</li>
+            <li id="inMTR">In the MTR</li>
+            <li id="tipping">Tipping</li>
+            <li id="plasticBag">Plastic Bag Charge</li>
+            <li id="salesTax">Sales tax</li>
+          </ul>
+        </li>
+        <li>
+          <h3 class="menuHeader">Transportation</h3>
+          <ul>
+            <li id="getToHK">getting to HK</li>
+            <li id="getAroundHK">getting around</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
 
-  <!-- Tips section. It will be empty on page load. Content will be populated by JavaScript -->
-  <div>
-    <div id="tips"></div>
-  </div>
-</main>
-<footer>
-  <p>&copy; 2015, Tif Hang Kwai Pun</p>
-</footer>
-<script src="js/libs/jquery-2.1.4.min.js"></script>
-<script src="js/script.js"></script>
-<script src="js/tips.js"></script>
+    <!-- Tips section. It will be empty on page load. Content will be populated by JavaScript -->
+    <div>
+      <div id="tips"></div>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2015, Tif Hang Kwai Pun</p>
+  </footer>
+  <script src="js/libs/jquery-2.1.4.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/tips.js"></script>
 </body>
+
 </html>
